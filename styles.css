@@ -1,0 +1,49 @@
+body {
+  font-size: 20px;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Zilla Slab';
+  background-color: #f7d0d7;
+  background-image: url(./images/pattern.svg);
+  background-size: 200px;
+}
+
+main {
+  width: 100%;
+  margin: 1.5rem;
+  max-width: 1000px;
+  padding: 2rem;
+  background-color: white;
+  border: 3px solid #000;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 3em;
+  font-family: 'Nunito Sans';
+}
+
+p {
+  line-height: 1.5;
+  text-align: center;
+}
+
+a {
+  margin: 1.5rem .6rem 0;
+  display: inline-block;
+  color: #000;
+  font-weight: bold;
+  font-family: 'Nunito Sans';
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    font-size: 14px;
+    align-items: flex-start;
+  }
+}
