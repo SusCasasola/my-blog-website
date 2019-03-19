@@ -1,13 +1,32 @@
 const { parsed: localEnv } = require('dotenv').config()
 const webpack = require('webpack')
+const contentful = require('contentful');
 
 module.exports = {
   exportPathMap: async function () {
-    return {
+    const client = contentful.createClient({
+      space: process.env.CONTENTFUL_SPACE_ID,
+      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+    })
+    const entries = await client.getEntries({ content_type: 'blogPost' });
+
+    const articles = entries.items.reduce(
+      (articles, entry) => 
+        Object.assign({}, articles, {
+          [`/article/${entry.fields.slug}`]: {
+            page: '/article',
+            query: { slug: entry.fields.slug },
+          }
+        }),
+      {}
+    );
+
+    console.log('=========', articles)
+    
+    return Object.assign({}, articles, {
       '/': { page: '/home' },
-      '/about': { page: '/about' },
       '/blog': { page: '/blog' },
-    }
+    });
   },
   webpack(config) {
     config.plugins.push(new webpack.EnvironmentPlugin(localEnv))
