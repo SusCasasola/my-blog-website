@@ -3,4 +3,6 @@ npm-debug.log
 .vscode
 .vs-code
 .next
+.netlify
+out
 **/.DS_Store
