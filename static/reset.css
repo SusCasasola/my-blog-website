@@ -4,7 +4,8 @@
   --primary-color: #aa6eaa;
   --secondary-color: #f7d0d7;
   --white-04: rgba(255,255,255, .4);
-  --caption-color: rgba(0,0,0,0.4);
+  --black-04: rgba(0,0,0,0.4);
+  --black-07: rgba(0,0,0,0.7);
   --bg-color: #fff;
   --text-color: #000;
   --selection-color: #ffdb00;
@@ -81,7 +82,14 @@ a:not(.no-decoration).active {
 footer {
   text-align: right;
   font-size: .8rem;
-  color: var(--caption-color);
+  color: var(--black-04);
+}
+
+@media screen and (max-width: 700px) {
+  :root {
+    font-size: 18px;
+  }
+  h1 { font-size: 2em; }
 }
 
 @media screen and (max-width: 500px) {

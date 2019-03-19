@@ -10,9 +10,11 @@
     "deploy": "yarn run build && yarn run export"
   },
   "dependencies": {
+    "contentful": "^7.4.3",
+    "dotenv": "^7.0.0",
+    "glamor": "^2.20.24",
     "next": "^8.0.3",
     "react": "^16.8.4",
-    "react-dom": "^16.8.4",
-    "glamor": "^2.20.24"
+    "react-dom": "^16.8.4"
   }
 }

@@ -6,7 +6,7 @@ import { TwitterIcon, GithubIcon, CodepenIcon, CodesandboxIcon } from '../../ico
 
 const Home = props => (
   <Layout currentUrl={props.router.pathname}>
-    <section {...styles()}>
+    <section className="home" {...styles()}>
       <h1>Hi! I'm Sussie</h1>
       <p>My name is Sussie Casasola and I'm a Frontend developer from Mexico City 🇲🇽. This site was created to share what I'm learning, to practice my skills and to let the world know some more things about me.</p>
       <p>Feel free to stalk me on:</p>
