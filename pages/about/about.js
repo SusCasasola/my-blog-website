@@ -1,9 +1,11 @@
+import { withRouter } from 'next/router'
+
 import Layout from '../../components/Layout';
 
 const About = props => (
-  <Layout currentUrl={props.url.asPath}>
+  <Layout currentUrl={props.router.pathname}>
     <h1>About me</h1>
   </Layout>
 );
 
-export default About;
+export default withRouter(About);

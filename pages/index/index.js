@@ -1,9 +1,11 @@
-import Layout from '../../components/Layout';
+import { withRouter } from 'next/router'
+
 import styles from './styles';
+import Layout from '../../components/Layout';
 import { TwitterIcon, GithubIcon, CodepenIcon, CodesandboxIcon } from '../../icons';
 
 const Home = props => (
-  <Layout currentUrl={props.url.asPath}>
+  <Layout currentUrl={props.router.pathname}>
     <section {...styles()}>
       <h1>Hi! I'm Sussie</h1>
       <p>My name is Sussie Casasola and I'm a Frontend developer from Mexico City 🇲🇽. This site was created to share what I'm learning, to practice my skills and to let the world know some more things about me.</p>
@@ -26,4 +28,4 @@ const Home = props => (
   </Layout>
 );
 
-export default Home
+export default withRouter(Home);
