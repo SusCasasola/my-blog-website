@@ -1,4 +1,4 @@
-import Layout from '../components/Layout';
+import Layout from '../../components/Layout';
 
 const Blog = props => (
   <Layout currentUrl={props.url.asPath}>

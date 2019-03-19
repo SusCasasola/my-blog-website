@@ -42,21 +42,26 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 3em;
+  margin-bottom: 1.2rem;
 }
 
 p {
   line-height: 1.5;
+  margin-bottom: 1rem;
 }
 
-a {
+a:not(.no-decoration) {
   color: var(--text-color);
   font-weight: bold;
   text-decoration: none;
-  transition: all .2s ease;
+  transition: color .2s ease;
   border-bottom: 2px solid var(--text-color);
 }
 
-a:hover, a:focus, a:active, a.active {
+a:not(.no-decoration):hover,
+a:not(.no-decoration):focus,
+a:not(.no-decoration):active,
+a:not(.no-decoration).active {
   color: var(--primary-color);
   outline: none;
   border-bottom: 2px dashed var(--primary-color);
