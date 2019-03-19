@@ -1,7 +1,7 @@
 import Layout from '../components/Layout';
 
-const Home = () => (
-  <Layout>
+const Home = props => (
+  <Layout currentUrl={props.url.asPath}>
     <h1>Welcome :)</h1>
   </Layout>
 );

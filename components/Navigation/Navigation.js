@@ -1,17 +1,16 @@
 import Link from 'next/link';
+import styles from './styles';
 
-const Navigation = () => (
-  <nav>
+const Navigation = ({ currentUrl }) => (
+  <nav {...styles()}>
     <Link href='/'>
-      <a>Home</a>
+      <a className={currentUrl === '/' ? 'active' : ''}>Home</a>
     </Link>
-    |
     <Link href='/about'>
-      <a>About</a>
+      <a className={currentUrl === '/about' ? 'active' : ''}>About</a>
     </Link>
-    |
     <Link href='/blog'>
-      <a>Blog</a>
+      <a className={currentUrl === '/blog' ? 'active' : ''}>Blog</a>
     </Link>
   </nav>
 );

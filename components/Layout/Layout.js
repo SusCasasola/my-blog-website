@@ -4,11 +4,11 @@ import Head from '../Head';
 import Footer from '../Footer';
 import Navigation from '../Navigation';
 
-const Layout = ({ children }) => (
+const Layout = ({ currentUrl, children }) => (
   <Fragment>
     <Head />
     <main>
-      <Navigation />
+      <Navigation currentUrl={currentUrl} />
       {children}
       <Footer />
     </main>
