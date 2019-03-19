@@ -1,9 +1,10 @@
 import { Component } from 'react';
-import { withRouter } from 'next/router'
-const contentful = require('contentful')
+import Link from 'next/link';
+import { withRouter } from 'next/router';
+const contentful = require('contentful');
 
-import Layout from '../../components/Layout';
 import styles from './styles';
+import Layout from '../../components/Layout';
 
 class Blog extends Component {
   static async getInitialProps() {
@@ -27,13 +28,18 @@ class Blog extends Component {
           <ul className="blog__entries">
             {entries.map((entry, i) => (
               <li key={i} className="blog__entry">
-                <a href={entry.fields.slug}>
-                  <article>
-                    <img src={entry.fields.heroImage.fields.file.url}/>
-                    <h2>{entry.fields.title}</h2>
-                    <p>{entry.fields.description}</p>
-                  </article>
-                </a>
+                <Link
+                  as={`/article/${entry.fields.slug}`}
+                  href={`article?slug=${entry.fields.slug}`}
+                >
+                  <a>
+                    <article>
+                      <img src={entry.fields.heroImage.fields.file.url}/>
+                      <h2>{entry.fields.title}</h2>
+                      <p>{entry.fields.description}</p>
+                    </article>
+                  </a>
+                </Link>
               </li>
             ))}
           </ul>

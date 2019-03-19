@@ -1,4 +1,4 @@
-import { css, left } from 'glamor';
+import { css } from 'glamor';
 
 const styles = () => css({
   '& .blog__entries': {
