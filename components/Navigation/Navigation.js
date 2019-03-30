@@ -3,13 +3,13 @@ import styles from './styles';
 
 const Navigation = ({ currentUrl }) => (
   <nav {...styles()}>
-    <Link href='/'>
+    <Link prefetch href='/'>
       <a className={currentUrl === '/home' ? 'active' : ''}>Home</a>
     </Link>
-    <Link href='/about'>
+    <Link prefetch href='/about'>
       <a className={currentUrl === '/about' ? 'active' : ''}>About</a>
     </Link>
-    <Link href='/blog'>
+    <Link prefetch href='/blog'>
       <a className={currentUrl === '/blog' ? 'active' : ''}>Blog</a>
     </Link>
   </nav>
