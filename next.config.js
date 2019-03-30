@@ -7,7 +7,7 @@ module.exports = {
     const client = contentful.createClient({
       space: process.env.CONTENTFUL_SPACE_ID,
       accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
-    })
+    });
     const entries = await client.getEntries({
       content_type: 'blogPost'
     });
@@ -15,7 +15,7 @@ module.exports = {
     const articles = entries.items.reduce(
       (articles, entry) =>
         Object.assign({}, articles, {
-          [`/article/${entry.fields.slug}`]: {
+          [`/blog/${entry.fields.slug}`]: {
             page: '/article',
             query: {
               slug: entry.fields.slug

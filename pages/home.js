@@ -1,8 +1,16 @@
 import { withRouter } from 'next/router'
+import { css } from 'glamor';
 
-import styles from './styles';
-import Layout from '../../components/Layout';
-import { TwitterIcon, GithubIcon, CodepenIcon, CodesandboxIcon } from '../../icons';
+import Layout from '../components/Layout';
+import { TwitterIcon, GithubIcon, CodepenIcon, CodesandboxIcon } from '../icons';
+
+const styles = () => css({
+  '& .home__links': {
+    '& a:not(:last-child)': {
+      marginRight: '1rem',
+    }
+  }
+});
 
 const Home = props => (
   <Layout currentUrl={props.router.pathname}>

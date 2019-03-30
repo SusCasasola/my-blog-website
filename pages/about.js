@@ -1,6 +1,6 @@
 import { withRouter } from 'next/router'
 
-import Layout from '../../components/Layout';
+import Layout from '../components/Layout';
 
 const About = props => (
   <Layout currentUrl={props.router.pathname}>

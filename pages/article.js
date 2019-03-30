@@ -1,9 +1,16 @@
 import { Component } from 'react';
 import { withRouter } from 'next/router'
 const contentful = require('contentful');
+import { css } from 'glamor';
 
-import Layout from '../../components/Layout';
-import styles from './styles';
+import Layout from '../components/Layout';
+
+const styles = () => css({
+  '& img': {
+    maxWidth: '100%',
+    marginBottom: '2rem',
+  }
+});
 
 class Article extends Component {
   static async getInitialProps({ query }) {
