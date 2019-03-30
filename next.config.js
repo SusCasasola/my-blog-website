@@ -8,24 +8,26 @@ module.exports = {
       space: process.env.CONTENTFUL_SPACE_ID,
       accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
     })
-    const entries = await client.getEntries({ content_type: 'blogPost' });
+    const entries = await client.getEntries({
+      content_type: 'blogPost'
+    });
 
     const articles = entries.items.reduce(
-      (articles, entry) => 
+      (articles, entry) =>
         Object.assign({}, articles, {
           [`/article/${entry.fields.slug}`]: {
             page: '/article',
-            query: { slug: entry.fields.slug },
+            query: {
+              slug: entry.fields.slug
+            },
           }
-        }),
-      {}
+        }), {}
     );
 
-    console.log('=========', articles)
-    
     return Object.assign({}, articles, {
       '/': { page: '/home' },
       '/blog': { page: '/blog' },
+      '/about': { page: '/about' }
     });
   },
   webpack(config) {

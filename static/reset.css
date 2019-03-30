@@ -1,11 +1,10 @@
-
 :root {
   font-size: 20px;
   --primary-color: #aa6eaa;
   --secondary-color: #f7d0d7;
-  --white-04: rgba(255,255,255, .4);
-  --black-04: rgba(0,0,0,0.4);
-  --black-07: rgba(0,0,0,0.7);
+  --white-04: rgba(255, 255, 255, .4);
+  --black-04: rgba(0, 0, 0, 0.4);
+  --black-07: rgba(0, 0, 0, 0.7);
   --bg-color: #fff;
   --text-color: #000;
   --selection-color: #ffdb00;
@@ -14,10 +13,11 @@
 }
 
 ::selection {
-  background: var(--selection-color); /* WebKit/Blink Browsers */
+  background: var(--secondary-color);
 }
+
 ::-moz-selection {
-  background: var(--selection-color); /* Gecko Browsers */
+  background: var(--secondary-color);
 }
 
 * {
@@ -30,7 +30,7 @@ body {
   color: var(--text-color);
   font-family: var(--secondary-font);
   background-color: var(--secondary-color);
-  background-image: 
+  background-image:
     url(./pattern.svg),
     linear-gradient(var(--white-04) 1px, transparent 0),
     linear-gradient(90deg, var(--white-04) 1px, transparent 0);
@@ -46,7 +46,12 @@ main {
   border: .25rem solid var(--text-color);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--primary-font);
   font-weight: bold;
 }
@@ -89,7 +94,10 @@ footer {
   :root {
     font-size: 18px;
   }
-  h1 { font-size: 2em; }
+
+  h1 {
+    font-size: 2em;
+  }
 }
 
 @media screen and (max-width: 500px) {
