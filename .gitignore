@@ -2,4 +2,7 @@ node_modules/
 npm-debug.log
 .vscode
 .vs-code
+.next
+out
 **/.DS_Store
+.env

@@ -1,0 +1,22 @@
+{
+  "name": "my-website-2019",
+  "author": "@SusCasasola",
+  "title": "Sussie Casasola Website",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js",
+    "export": "next export",
+    "deploy": "yarn run build && yarn run export"
+  },
+  "dependencies": {
+    "contentful": "^7.4.3",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "glamor": "^2.20.24",
+    "next": "^8.0.3",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  }
+}
