@@ -3,15 +3,9 @@ import styles from './styles';
 
 const Navigation = ({ currentUrl }) => (
   <nav {...styles()}>
-    <Link prefetch href='/'>
-      <a className={currentUrl === '/home' ? 'active' : ''}>Home</a>
-    </Link>
-    <Link prefetch href='/about'>
-      <a className={currentUrl === '/about' ? 'active' : ''}>About</a>
-    </Link>
-    <Link prefetch href='/blog'>
-      <a className={currentUrl === '/blog' ? 'active' : ''}>Blog</a>
-    </Link>
+    <a href='/' className={currentUrl === '/home' ? 'active' : ''}>Home</a>
+    <a href='/about' className={currentUrl === '/about' ? 'active' : ''}>About</a>
+    <a href='/blog' className={currentUrl === '/blog' ? 'active' : ''}>Blog</a>
   </nav>
 );
 
