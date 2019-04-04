@@ -66,18 +66,13 @@ class Blog extends Component {
           <ul className="blog__entries">
             {entries.map((entry, i) => (
               <li key={i} className="blog__entry">
-                <Link
-                  as={`/blog/${entry.fields.slug}`}
-                  href={`article?slug=${entry.fields.slug}`}
-                >
-                  <a>
-                    <article>
-                      <img src={entry.fields.heroImage.fields.file.url}/>
-                      <h2>{entry.fields.title}</h2>
-                      <p>{entry.fields.description}</p>
-                    </article>
-                  </a>
-                </Link>
+                <a href={`/blog/${entry.fields.slug}`}>
+                  <article>
+                    <img src={entry.fields.heroImage.fields.file.url}/>
+                    <h2>{entry.fields.title}</h2>
+                    <p>{entry.fields.description}</p>
+                  </article>
+                </a>
               </li>
             ))}
           </ul>

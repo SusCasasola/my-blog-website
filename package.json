@@ -4,9 +4,8 @@
   "title": "Sussie Casasola Website",
   "version": "1.0.0",
   "scripts": {
-    "dev": "node server.js",
+    "dev": "next",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js",
     "export": "next export",
     "deploy": "yarn run build && yarn run export"
   },
