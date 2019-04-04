@@ -1,9 +1,12 @@
 import { Component } from 'react';
-import { withRouter } from 'next/router'
-const contentful = require('contentful');
 import { css } from 'glamor';
+import getConfig from 'next/config';
+import { withRouter } from 'next/router'
 
 import Layout from '../components/Layout';
+
+const contentful = require('contentful');
+const { publicRuntimeConfig } = getConfig();
 
 const styles = () => css({
   '& img': {
@@ -14,10 +17,7 @@ const styles = () => css({
 
 class Article extends Component {
   static async getInitialProps({ query }) {
-    const client = contentful.createClient({
-      space: process.env.CONTENTFUL_SPACE_ID,
-      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
-    })
+    const client = contentful.createClient(publicRuntimeConfig.contentful);
 
     const entry = await client.getEntries({ content_type: 'blogPost', 'fields.slug': query.slug });
 

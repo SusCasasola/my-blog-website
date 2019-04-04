@@ -3,6 +3,12 @@ const webpack = require('webpack')
 const contentful = require('contentful');
 
 module.exports = {
+  publicRuntimeConfig: {
+    contentful: {
+      space: process.env.CONTENTFUL_SPACE_ID,
+      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN 
+    },
+  },
   exportPathMap: async function () {
     const client = contentful.createClient({
       space: process.env.CONTENTFUL_SPACE_ID,
