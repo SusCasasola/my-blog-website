@@ -2,18 +2,17 @@ const { parsed: localEnv } = require('dotenv').config()
 const webpack = require('webpack')
 const contentful = require('contentful');
 
+const contentfulKeys = {
+  space: process.env.CONTENTFUL_SPACE_ID,
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN 
+};
+
 module.exports = {
   publicRuntimeConfig: {
-    contentful: {
-      space: process.env.CONTENTFUL_SPACE_ID,
-      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN 
-    },
+    contentful: contentfulKeys,
   },
   exportPathMap: async function () {
-    const client = contentful.createClient({
-      space: process.env.CONTENTFUL_SPACE_ID,
-      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
-    });
+    const client = contentful.createClient(contentfulKeys);
     const entries = await client.getEntries({
       content_type: 'blogPost'
     });
