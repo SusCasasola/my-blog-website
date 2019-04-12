@@ -4,19 +4,6 @@ import { css } from 'glamor';
 import Layout from '../components/Layout';
 
 const styles = () => css({
-  '& > h1': {
-    position: 'relative',
-    '::after': {
-      content: '""',
-      display: 'inline-block',
-      width: '1rem',
-      height: '3.5rem',
-      marginLeft: '.5rem',
-      backgroundImage: 'url(/static/heart.png)',
-      backgroundSize: 'contain',
-      backgroundRepeat: 'no-repeat',
-    }
-  },
   '& .home__links': {
     '& a:not(:last-child)': {
       marginRight: '1rem',
