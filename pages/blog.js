@@ -50,13 +50,16 @@ class Blog extends Component {
             {entries.map((entry, i) => (
               <li key={i} className="blog__entry">
                 <article>
+                  <h2>{entry.fields.title}</h2>
+                  <p>
+                    {entry.fields.description}
+                  </p>
                   <Link
                     as={`/blog/${entry.fields.slug}`}
                     href={{ pathname:'/article', query: { slug: entry.fields.slug } }}
                   >
-                    <a><h2>{entry.fields.title}</h2></a>
+                    <a>Read more...</a>
                   </Link>
-                  <p>{entry.fields.description}</p>
                 </article>
               </li>
             ))}
