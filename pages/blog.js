@@ -14,10 +14,7 @@ const styles = () => css({
     margin: '2rem 0',
   },
   '& .blog__entry': {
-    position: 'relative',
-    maxWidth: 598,
     margin: '0 auto',
-    paddingLeft: 140,
     listStyleType: 'none',
     '@media screen and (max-width: 700px)': {
       paddingLeft: 0,
@@ -25,22 +22,8 @@ const styles = () => css({
     '&:not(:last-child)': {
       marginBottom: '2rem',
     },
-    '& img': {
-      maxWidth: 120,
-      position: 'absolute',
-      left: 0,
-      top: 0,
-      marginRight: '1rem',
-      '@media screen and (max-width: 700px)': {
-        position: 'static',
-        maxWidth: '100%'
-      }
-    },
     '& h2': {
       fontSize: '1.5rem',
-    },
-    '& p': {
-      color: 'var(--black-07)'
     }
   }
 })
@@ -62,7 +45,6 @@ class Blog extends Component {
     return (
       <Layout currentUrl={pathname}>
         <section className="blog" {...styles()}>
-          <h1>Sometimes I write...</h1>
           <ul className="blog__entries">
             {entries.map((entry, i) => (
               <li key={i} className="blog__entry">
@@ -72,7 +54,7 @@ class Blog extends Component {
                 >
                   <a>
                     <article>
-                      <img src={entry.fields.heroImage.fields.file.url}/>
+                      {/* <img src={entry.fields.heroImage.fields.file.url}/> */}
                       <h2>{entry.fields.title}</h2>
                       <p>{entry.fields.description}</p>
                     </article>

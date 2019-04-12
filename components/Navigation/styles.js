@@ -4,7 +4,7 @@ const styles = () => css({
   display: 'flex',
   justifyContent: 'flex-end',
   alignItems: 'center',
-  marginBottom: '1rem',
+  marginBottom: '2.5555556rem',
   '& >a': {
     '&:not(:last-child)': {
       marginRight: '1rem'

@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import styles from './styles';
+import { HomeIcon } from '../../icons';
 
 const Navigation = ({ currentUrl }) => (
   <nav {...styles()}>
-    <Link href='/'>
+    <Link as="/" href='/home'>
       <a className={currentUrl === '/home' ? 'active' : ''}>Home</a>
     </Link>
     <Link href='/about'>

@@ -2,9 +2,21 @@ import { withRouter } from 'next/router'
 import { css } from 'glamor';
 
 import Layout from '../components/Layout';
-import { TwitterIcon, GithubIcon, CodepenIcon, CodesandboxIcon } from '../icons';
 
 const styles = () => css({
+  '& > h1': {
+    position: 'relative',
+    '::after': {
+      content: '""',
+      display: 'inline-block',
+      width: '1rem',
+      height: '3.5rem',
+      marginLeft: '.5rem',
+      backgroundImage: 'url(/static/heart.png)',
+      backgroundSize: 'contain',
+      backgroundRepeat: 'no-repeat',
+    }
+  },
   '& .home__links': {
     '& a:not(:last-child)': {
       marginRight: '1rem',
@@ -20,16 +32,16 @@ const Home = props => (
       <p>Feel free to stalk me on:</p>
       <p className="home__links">
         <a className="no-decoration" href="https://twitter.com/SusCasasola" target="_blank">
-          <TwitterIcon />
+          Twitter
         </a>
         <a className="no-decoration" href="https://github.com/SusCasasola" target="_blank">
-          <GithubIcon />
+          Github
         </a>
         <a className="no-decoration" href="https://codepen.io/SusCasasola/" target="_blank">
-          <CodepenIcon />
+          Codepen
         </a>
         <a className="no-decoration" href="https://codesandbox.io/u/SusCasasola" target="_blank">
-          <CodesandboxIcon />
+          Codesandbox
         </a>
       </p>
     </section>
