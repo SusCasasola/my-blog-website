@@ -45,21 +45,19 @@ class Blog extends Component {
     return (
       <Layout currentUrl={pathname}>
         <section className="blog" {...styles()}>
+          <h1>My articles</h1>
           <ul className="blog__entries">
             {entries.map((entry, i) => (
               <li key={i} className="blog__entry">
-                <Link
-                  as={`/blog/${entry.fields.slug}`}
-                  href={{ pathname:'/article', query: { slug: entry.fields.slug } }}
-                >
-                  <a>
-                    <article>
-                      {/* <img src={entry.fields.heroImage.fields.file.url}/> */}
-                      <h2>{entry.fields.title}</h2>
-                      <p>{entry.fields.description}</p>
-                    </article>
-                  </a>
-                </Link>
+                <article>
+                  <Link
+                    as={`/blog/${entry.fields.slug}`}
+                    href={{ pathname:'/article', query: { slug: entry.fields.slug } }}
+                  >
+                    <a><h2>{entry.fields.title}</h2></a>
+                  </Link>
+                  <p>{entry.fields.description}</p>
+                </article>
               </li>
             ))}
           </ul>

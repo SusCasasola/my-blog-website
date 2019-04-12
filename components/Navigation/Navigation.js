@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import styles from './styles';
-import { HomeIcon } from '../../icons';
 
 const Navigation = ({ currentUrl }) => (
   <nav {...styles()}>
