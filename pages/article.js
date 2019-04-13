@@ -21,11 +21,9 @@ class Article extends Component {
     const { router: { pathname }, entry } = this.props;
     return (
       <Layout currentUrl={pathname}>
-        <section className="article">
-          <h1>{entry.fields.title}</h1>
-          <img src={entry.fields.heroImage.fields.file.url} />
-          <p>{entry.fields.description}</p>
-        </section>
+        <h1>{entry.fields.title}</h1>
+        <img src={entry.fields.heroImage.fields.file.url} />
+        <p>{entry.fields.description}</p>
       </Layout>
     );
   }

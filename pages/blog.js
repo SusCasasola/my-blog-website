@@ -24,27 +24,25 @@ class Blog extends Component {
     const { router: { pathname }, entries } = this.props;
     return (
       <Layout currentUrl={pathname}>
-        <section className="blog">
-          <h1>My articles</h1>
-          <ul className="blog__entries">
-            {entries.map((entry, i) => (
-              <li key={i} className="blog__entry">
-                <article>
-                  <h2>{entry.fields.title}</h2>
-                  <p>
-                    {entry.fields.description}
-                  </p>
-                  <Link
-                    as={`/blog/${entry.fields.slug}`}
-                    href={{ pathname:'/article', query: { slug: entry.fields.slug } }}
-                  >
-                    <a>Read more...</a>
-                  </Link>
-                </article>
-              </li>
-            ))}
-          </ul>
-        </section>
+        <h1>My articles</h1>
+        <ul>
+          {entries.map((entry, i) => (
+            <li key={i}>
+              <article>
+                <h2>{entry.fields.title}</h2>
+                <p>
+                  {entry.fields.description}
+                </p>
+                <Link
+                  as={`/blog/${entry.fields.slug}`}
+                  href={{ pathname:'/article', query: { slug: entry.fields.slug } }}
+                >
+                  <a>Read more...</a>
+                </Link>
+              </article>
+            </li>
+          ))}
+        </ul>
       </Layout>
     );
   }

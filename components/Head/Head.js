@@ -8,7 +8,6 @@ const HeadComponent = () => (
     <title>Sussie Casasola | Frontend Developer</title>
     <link href="https://fonts.googleapis.com/css?family=Poppins|Lato" rel="stylesheet" />
     <link rel="icon" href="/static/favicon.png" />
-    <link rel="stylesheet" type="text/css" href="/static/reset.css" />
   </Head>
 );
 

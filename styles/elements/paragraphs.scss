@@ -1,0 +1,8 @@
+p {
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+p:not(:last-child) {
+  margin-bottom: 1.27777778em;
+}

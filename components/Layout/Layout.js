@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 
+import 'styles/main.scss';
 import Head from 'components/Head';
 import Footer from 'components/Footer';
 import Navigation from 'components/Navigation';
@@ -9,7 +10,7 @@ const Layout = ({ currentUrl, children }) => (
     <Head />
     <main>
       <Navigation currentUrl={currentUrl} />
-      {children}
+      <section>{children}</section>
       <Footer />
     </main>
   </Fragment>
