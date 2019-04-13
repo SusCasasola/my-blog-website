@@ -1,9 +1,9 @@
 import { Component } from 'react';
-import Link from 'next/link';
 import getConfig from 'next/config';
 import { withRouter } from 'next/router';
 
 import Layout from 'components/Layout';
+import ArticlePreview from 'components/ArticlePreview';
 import { container } from 'styles/objects/container.scss';
 
 const contentful = require('contentful');
@@ -17,31 +17,24 @@ class Blog extends Component {
       content_type: 'blogPost',
       select: 'fields.title,fields.description,fields.slug,fields.publishDate'
     });
-
     return {
       entries: entries.items,
     }
   }
   render() {
     const { router: { pathname }, entries } = this.props;
+
     return (
       <Layout currentUrl={pathname}>
         <h1>My articles</h1>
         <ul className={container}>
-          {entries.map((entry, i) => (
-            <li key={i}>
-              <article>
-                <h2>{entry.fields.title}</h2>
-                <p>
-                  {entry.fields.description}
-                </p>
-                <Link
-                  as={`/blog/${entry.fields.slug}`}
-                  href={{ pathname:'/article', query: { slug: entry.fields.slug } }}
-                >
-                  <a>Read more...</a>
-                </Link>
-              </article>
+          {entries.map(({ fields: { slug, title, description }, sys: { id } }) => (
+            <li key={id}>
+              <ArticlePreview
+                slug={slug}
+                title={title}
+                description={description}
+              />
             </li>
           ))}
         </ul>
