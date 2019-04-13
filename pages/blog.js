@@ -10,10 +10,11 @@ const { publicRuntimeConfig } = getConfig();
 
 class Blog extends Component {
   static async getInitialProps() {
-    const client = contentful.createClient(publicRuntimeConfig.contentful);
+    const client = contentful.createClient(publicRuntimeConfig.contentLoad);
 
     const entries = await client.getEntries({
-      content_type: 'blogPost'
+      content_type: 'blogPost',
+      select: 'fields.title,fields.description,fields.slug,fields.publishDate'
     });
 
     return {

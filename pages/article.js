@@ -9,9 +9,12 @@ const { publicRuntimeConfig } = getConfig();
 
 class Article extends Component {
   static async getInitialProps({ query }) {
-    const client = contentful.createClient(publicRuntimeConfig.contentful);
+    const client = contentful.createClient(publicRuntimeConfig.contentLoad);
 
-    const entry = await client.getEntries({ content_type: 'blogPost', 'fields.slug': query.slug });
+    const entry = await client.getEntries({
+      content_type: 'blogPost',
+      'fields.slug': query.slug
+    });
 
     return {
       entry: entry.items[0],

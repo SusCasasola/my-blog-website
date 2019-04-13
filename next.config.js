@@ -17,7 +17,7 @@ module.exports = withSass({
   },
 
   publicRuntimeConfig: {
-    contentful: contentfulKeys,
+    contentLoad: contentfulKeys,
   },
 
   exportPathMap: async function () {
