@@ -25,7 +25,6 @@ class Article extends Component {
     return (
       <Layout currentUrl={pathname}>
         <h1>{entry.fields.title}</h1>
-        <img src={entry.fields.heroImage.fields.file.url} />
         <p>{entry.fields.description}</p>
       </Layout>
     );
