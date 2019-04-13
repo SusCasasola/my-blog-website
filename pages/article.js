@@ -3,6 +3,7 @@ import getConfig from 'next/config';
 import { withRouter } from 'next/router'
 
 import Layout from 'components/Layout';
+import { container } from 'styles/objects/container.scss';
 
 const contentful = require('contentful');
 const { publicRuntimeConfig } = getConfig();
@@ -25,7 +26,9 @@ class Article extends Component {
     return (
       <Layout currentUrl={pathname}>
         <h1>{entry.fields.title}</h1>
-        <p>{entry.fields.description}</p>
+        <div className={container}>
+          <p>{entry.fields.description}</p>
+        </div>
       </Layout>
     );
   }

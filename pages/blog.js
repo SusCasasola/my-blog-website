@@ -4,6 +4,7 @@ import getConfig from 'next/config';
 import { withRouter } from 'next/router';
 
 import Layout from 'components/Layout';
+import { container } from 'styles/objects/container.scss';
 
 const contentful = require('contentful');
 const { publicRuntimeConfig } = getConfig();
@@ -26,7 +27,7 @@ class Blog extends Component {
     return (
       <Layout currentUrl={pathname}>
         <h1>My articles</h1>
-        <ul>
+        <ul className={container}>
           {entries.map((entry, i) => (
             <li key={i}>
               <article>

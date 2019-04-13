@@ -1,12 +1,13 @@
 main {
   min-height: 100vh;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 2.5555556rem 2rem;
+  padding: 2.5555556rem 1rem;
   display: flex;
   flex-direction: column;
+  background-color: $white;
 }
 footer {
-  margin-top: auto;
+  margin-top: 2rem;
   text-align: right;
 }

@@ -1,13 +1,14 @@
 import Link from 'next/link';
 
-import css from 'styles/objects/flexEnd.scss';
+import { flexEnd } from 'styles/objects/flexEnd.scss';
+import { navigation } from 'styles/components/navigation.scss';
 
 const Navigation = ({ currentUrl }) => {
   const isActiveClass = path => currentUrl === path ? 'active' : '';
 
   return (
-    <nav>
-      <ul className={css.flexEnd}>
+    <nav className={navigation}>
+      <ul className={flexEnd}>
         <li>
           <Link as="/" href='/home'>
             <a className={isActiveClass('/home')}>Home</a>

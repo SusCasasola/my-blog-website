@@ -3,39 +3,40 @@ h2,
 h3,
 h4,
 h5 {
+  line-height: 1.2;
+  margin-top: 1.7222222rem;
+  color: $title-color;
   font-family: $primary-font;
   font-weight: bold;
-  line-height: 1.2777778;
-  margin-top: 1.2777778rem;
-  color: $title-color;
 }
 
 h1 {
-  font-size: 4.2222222rem;
-  margin-bottom: 2.5555556rem;
+  font-size: 2.8333333rem;
+  margin-bottom: 3.4444444rem;
   position: relative;
   &::after {
     content: "";
     display: inline-block;
     width: 1rem;
-    height: 3.5rem;
+    height: 1em;
     margin-left: .5rem;
     background-image: url(/static/heart.png);
     background-size: contain;
     background-repeat: no-repeat;
+    vertical-align: bottom;
   }
   @media screen and (max-width: 500px) {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 }
 
 h2 {
-  font-size: 2.6111111rem;
-  margin-bottom: 1.2777778rem;
+  font-size: 2rem;
+  margin-bottom: 1.7222222rem;
 }
 
 h3 {
-  font-size: 1.6111111rem;
+  font-size: 1.3888889rem;
   margin-bottom: 0rem;
 }
 
