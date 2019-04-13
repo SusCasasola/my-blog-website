@@ -1,8 +1,7 @@
 import Link from 'next/link';
-import styles from './styles';
 
 const Navigation = ({ currentUrl }) => (
-  <nav {...styles()}>
+  <nav>
     <Link as="/" href='/home'>
       <a className={currentUrl === '/home' ? 'active' : ''}>Home</a>
     </Link>

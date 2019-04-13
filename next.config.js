@@ -1,6 +1,8 @@
-const { parsed: localEnv } = require('dotenv').config()
-const webpack = require('webpack')
+const { parsed: localEnv } = require('dotenv').config();
+const webpack = require('webpack');
 const contentful = require('contentful');
+const path = require('path');
+
 
 const contentfulKeys = {
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -35,8 +37,10 @@ module.exports = {
       '/about': { page: '/about' }
     });
   },
-  webpack(config) {
+  webpack(config, options) {
     config.plugins.push(new webpack.EnvironmentPlugin(localEnv))
+    config.resolve.alias['pages'] = path.join(__dirname, 'pages')
+    config.resolve.alias['components'] = path.join(__dirname, 'components')
     return config
   }
 }

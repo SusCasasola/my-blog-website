@@ -1,32 +1,12 @@
 import { Component } from 'react';
-import { css } from 'glamor';
 import Link from 'next/link';
 import getConfig from 'next/config';
 import { withRouter } from 'next/router';
 
-import Layout from '../components/Layout';
+import Layout from 'components/Layout';
 
 const contentful = require('contentful');
 const { publicRuntimeConfig } = getConfig();
-
-const styles = () => css({
-  '& .blog__entries': {
-    margin: '2rem 0',
-  },
-  '& .blog__entry': {
-    margin: '0 auto',
-    listStyleType: 'none',
-    '@media screen and (max-width: 700px)': {
-      paddingLeft: 0,
-    },
-    '&:not(:last-child)': {
-      marginBottom: '2rem',
-    },
-    '& h2': {
-      fontSize: '1.5rem',
-    }
-  }
-})
 
 class Blog extends Component {
   static async getInitialProps() {
@@ -44,7 +24,7 @@ class Blog extends Component {
     const { router: { pathname }, entries } = this.props;
     return (
       <Layout currentUrl={pathname}>
-        <section className="blog" {...styles()}>
+        <section className="blog">
           <h1>My articles</h1>
           <ul className="blog__entries">
             {entries.map((entry, i) => (

@@ -1,8 +1,8 @@
 import { Fragment } from 'react';
 
-import Head from '../Head';
-import Footer from '../Footer';
-import Navigation from '../Navigation';
+import Head from 'components/Head';
+import Footer from 'components/Footer';
+import Navigation from 'components/Navigation';
 
 const Layout = ({ currentUrl, children }) => (
   <Fragment>
