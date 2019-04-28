@@ -1,10 +1,10 @@
 import Link from 'next/link';
 
-import { flexEnd } from 'styles/objects/flexEnd.scss';
-import { navigation } from 'styles/components/navigation.scss';
+import { flexEnd } from 'styles/objects/flexbox.scss';
+import { navigation, activeLink } from 'styles/components/navigation.scss';
 
 const Navigation = ({ currentUrl }) => {
-  const isActiveClass = path => currentUrl === path ? 'active' : '';
+  const isActiveClass = path => currentUrl === path ? activeLink : null;
 
   return (
     <nav className={navigation}>
@@ -16,7 +16,7 @@ const Navigation = ({ currentUrl }) => {
         </li>
         <li>
           <Link href='/about'>
-            <a className={isActiveClass('active')}>About</a>
+            <a className={isActiveClass('/about')}>About</a>
           </Link>
         </li>
         <li>

@@ -1,3 +1,10 @@
+@import "../settings/colors";
+@import "../settings/variables";
+
 .navigation {
   margin-bottom: 1.7222222rem;
+}
+
+.activeLink {
+  color: $primary-color;
 }

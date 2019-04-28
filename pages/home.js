@@ -2,7 +2,7 @@ import { withRouter } from 'next/router'
 
 import Layout from 'components/Layout';
 import { container } from 'styles/objects/container.scss';
-import { flexCenter } from 'styles/objects/flexCenter.scss';
+import { flexCenter } from 'styles/objects/flexbox.scss';
 
 const Home = props => (
   <Layout currentUrl={props.router.pathname}>
