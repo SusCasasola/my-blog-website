@@ -19,12 +19,13 @@ class Article extends Component {
 
     return {
       entry: entry.items[0],
+      currentLang: query.lang
     }
   }
   render() {
-    const { router: { pathname }, entry } = this.props;
+    const { router: { asPath }, entry, currentLang } = this.props;
     return (
-      <Layout currentUrl={pathname}>
+      <Layout currentUrl={asPath} currentLang={currentLang}>
         <h1>{entry.fields.title}</h1>
         <div className={container}>
           <p>{entry.fields.description}</p>

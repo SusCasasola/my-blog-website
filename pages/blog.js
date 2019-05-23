@@ -10,7 +10,7 @@ const contentful = require('contentful');
 const { publicRuntimeConfig } = getConfig();
 
 class Blog extends Component {
-  static async getInitialProps() {
+  static async getInitialProps({ query }) {
     const client = contentful.createClient(publicRuntimeConfig.contentLoad);
 
     const entries = await client.getEntries({
@@ -19,13 +19,14 @@ class Blog extends Component {
     });
     return {
       entries: entries.items,
+      currentLang: query.lang
     }
   }
   render() {
-    const { router: { pathname }, entries } = this.props;
+    const { router: { asPath }, entries, currentLang } = this.props;
 
     return (
-      <Layout currentUrl={pathname}>
+      <Layout currentUrl={asPath} currentLang={currentLang}>
         <h1>My articles</h1>
         <ul className={container}>
           {entries.map(({ fields: { slug, title, description }, sys: { id } }) => (

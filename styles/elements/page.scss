@@ -9,5 +9,11 @@ main {
 }
 footer {
   margin-top: 3rem;
-  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: .8rem;
+  & a::after {
+    display: none;
+  }
 }
