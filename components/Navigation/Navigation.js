@@ -10,12 +10,12 @@ const Navigation = ({ currentUrl, currentLang }) => {
     <nav className={navigation}>
       <ul className={flexEnd}>
         <li>
-          <Link as={`/${currentLang}/`} href={`/${currentLang}/home`}>
+          <Link as={`/${currentLang}`} href={`/${currentLang}/home`}>
             <a
               className={
                 isActiveClass('/') ||
-                isActiveClass('/en/') ||
-                isActiveClass('/es/')
+                isActiveClass('/en') ||
+                isActiveClass('/es')
               }
             >{currentLang === 'es' ? 'Inicio' : 'Home'}</a>
           </Link>
