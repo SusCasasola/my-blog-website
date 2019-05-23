@@ -9,6 +9,21 @@ const contentfulKeys = {
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN 
 };
 
+const mapArticleRoutes = (entries, lang) => (
+  entries.reduce(
+    (articles, entry) =>
+      Object.assign({}, articles, {
+        [`/${lang}/blog/${entry.fields.slug}`]: {
+          page: '/article',
+          query: {
+            lang,
+            slug: entry.fields.slug
+          },
+        }
+      }), {}
+  )
+);
+
 module.exports = withSass({
   cssModules: true,
   cssLoaderOptions: {
@@ -22,26 +37,32 @@ module.exports = withSass({
 
   exportPathMap: async function () {
     const client = contentful.createClient(contentfulKeys);
-    const entries = await client.getEntries({
-      content_type: 'blogPost'
+
+    const entriesEnglish = await client.getEntries({
+      content_type: 'blogPost',
+      'fields.language': 'en'
     });
 
-    const articles = entries.items.reduce(
-      (articles, entry) =>
-        Object.assign({}, articles, {
-          [`/blog/${entry.fields.slug}`]: {
-            page: '/article',
-            query: {
-              slug: entry.fields.slug
-            },
-          }
-        }), {}
-    );
+    const entriesSpanish = await client.getEntries({
+      content_type: 'blogPost',
+      'fields.language': 'es'
+    });
 
-    return Object.assign({}, articles, {
-      '/': { page: '/home' },
-      '/blog': { page: '/blog' },
-      '/about': { page: '/about' }
+    const articlesEnglish = mapArticleRoutes(entriesEnglish.items, 'en');
+    const articlesSpanish = mapArticleRoutes(entriesSpanish.items, 'es');
+
+    return Object.assign({}, articlesEnglish, articlesSpanish, {
+      '/': { page: '/home', query: { lang: 'en' } },
+      '/en': { page: '/home', query: { lang: 'en' } },
+      '/es': { page: '/home', query: { lang: 'es' } },
+
+      '/blog': { page: '/blog', query: { lang: 'en' } },
+      '/en/blog': { page: '/blog', query: { lang: 'en' } },
+      '/es/blog': { page: '/blog', query: { lang: 'es' } },
+
+      '/about': { page: '/about', query: { lang: 'en' } },
+      '/en/about': { page: '/about', query: { lang: 'en' } },
+      '/es/about': { page: '/about', query: { lang: 'es' } }
     });
   },
 
