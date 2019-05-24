@@ -1,8 +1,8 @@
 const Footer = ({ currentUrl, currentLang }) => {
   const renderLangPicker = () => {
     const text = {
-      es: '🇺🇸 Inglés',
-      en: '🇲🇽 Spanish ',
+      es: '🇺🇸 Cambiar a Inglés',
+      en: '🇲🇽 Switch to Spanish ',
     };
     const newLang = currentLang === 'es' ? 'en' : 'es';
     let newUrl = currentUrl.replace(`/${currentLang}`,`/${newLang}`);
