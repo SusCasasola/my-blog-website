@@ -1,9 +1,10 @@
 import { Component } from 'react';
 import getConfig from 'next/config';
-import { withRouter } from 'next/router'
+import { withRouter } from 'next/router';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 import Layout from 'components/Layout';
-import { container } from 'styles/objects/container.scss';
+import { article } from 'styles/components/article.scss';
 
 const contentful = require('contentful');
 const { publicRuntimeConfig } = getConfig();
@@ -24,12 +25,24 @@ class Article extends Component {
   }
   render() {
     const { router: { asPath }, entry, currentLang } = this.props;
+    const body = entry.fields.body;
+    const options = {
+      renderNode: {
+        'embedded-asset-block': (node) =>
+          `<img src="${node.data.target.fields.file.url}"/>`
+      }
+    };
+    const articleBodyInnerHTML = { __html: documentToHtmlString(body, options) };
+
     return (
       <Layout currentUrl={asPath} currentLang={currentLang} showLangSwitch={false}>
-        <h1>{entry.fields.title}</h1>
-        <section className={container}>
-          <p>{entry.fields.description}</p>
-        </section>
+        <article className={article}>
+          <h1>{entry.fields.title}</h1>
+          <section>
+            <p>{entry.fields.description}</p>
+          </section>
+          <section dangerouslySetInnerHTML={articleBodyInnerHTML}/>
+        </article>  
       </Layout>
     );
   }

@@ -4,5 +4,9 @@ p {
   margin: 0 auto;
 }
 p:not(:last-child) {
-  margin-bottom: 1.27777778em;
+  margin-bottom: 1.3em;
+}
+b, strong {
+  font-weight: 700;
+  color: $black;
 }

@@ -10,7 +10,7 @@ const ArticlePreview = ({ title, description, slug, currentLang }) => (
         as={`/${currentLang}/blog/${slug}`}
         href={{ pathname:'/article', query: { slug: slug, lang: currentLang } }}
       >
-        <a>Read more...</a>
+        <a>{currentLang === 'es' ? 'Leer más...' : 'Read more...'}</a>
       </Link>
     </p>
   </article>

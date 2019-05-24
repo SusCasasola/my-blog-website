@@ -4,15 +4,14 @@ h3,
 h4,
 h5 {
   line-height: 1.2;
-  margin-top: 1.7222222rem;
   color: $title-color;
   font-family: $primary-font;
   font-weight: bold;
 }
 
 h1 {
-  font-size: 2.8333333rem;
-  margin-bottom: 3.4444444rem;
+  font-size: 2.8rem;
+  margin-bottom: 3rem;
   position: relative;
   &::after {
     content: "";
@@ -32,11 +31,12 @@ h1 {
 
 h2 {
   font-size: 2rem;
-  margin-bottom: 1.7222222rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
 h3 {
-  font-size: 1.3888889rem;
+  font-size: 1.3rem;
   margin-bottom: 0rem;
 }
 

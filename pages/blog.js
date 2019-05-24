@@ -5,6 +5,7 @@ import { withRouter } from 'next/router';
 import Layout from 'components/Layout';
 import ArticlePreview from 'components/ArticlePreview';
 import { container } from 'styles/objects/container.scss';
+import { articleListItem } from 'styles/components/blog.scss';
 
 const contentful = require('contentful');
 const { publicRuntimeConfig } = getConfig();
@@ -32,7 +33,7 @@ class Blog extends Component {
         <h1>{titleText}</h1>
         <ul className={container}>
           {entries.map(({ fields: { slug, title, description }, sys: { id } }) => (
-            <li key={id}>
+            <li key={id} className={articleListItem}>
               <ArticlePreview
                 slug={slug}
                 title={title}

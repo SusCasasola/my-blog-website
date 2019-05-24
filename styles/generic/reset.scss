@@ -1,11 +1,13 @@
 :root {
   font-size: 18px;
-  line-height: 1.7222222rem;
+  line-height: 1.7rem;
 }
 
 ::selection,
 ::-moz-selection {
   color: $white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   background-color: $primary-color;
 }
 
