@@ -10,6 +10,7 @@
     "deploy": "yarn run build && yarn run export"
   },
   "dependencies": {
+    "@contentful/rich-text-html-renderer": "^13.1.0",
     "@zeit/next-sass": "^1.0.1",
     "contentful": "^7.4.3",
     "dotenv": "^7.0.0",
