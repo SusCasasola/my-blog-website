@@ -25,11 +25,11 @@ class Article extends Component {
   render() {
     const { router: { asPath }, entry, currentLang } = this.props;
     return (
-      <Layout currentUrl={asPath} currentLang={currentLang}>
+      <Layout currentUrl={asPath} currentLang={currentLang} showLangSwitch={false}>
         <h1>{entry.fields.title}</h1>
-        <div className={container}>
+        <section className={container}>
           <p>{entry.fields.description}</p>
-        </div>
+        </section>
       </Layout>
     );
   }

@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import getConfig from 'next/config';
 import { withRouter } from 'next/router'
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 import Layout from 'components/Layout';
 
@@ -16,14 +17,18 @@ class Home extends Component {
       'fields.name': query.lang === 'es' ? 'Inicio' : 'Home'
     });
 
-    return { homeText: homeText.items[0].fields.richText, currentLang: query.lang }
+    return {
+      currentLang: query.lang,
+      homeText: homeText.items[0].fields.richText
+    };
   }
 
   render () {
-    const { router: { asPath }, aboutMe, currentLang } = this.props
+    const { router: { asPath }, homeText, currentLang } = this.props;
+    const homeInnerHTML = { __html: documentToHtmlString(homeText) };
     return (
       <Layout currentUrl={asPath} currentLang={currentLang}>
-        <h1>Hi</h1>
+        <section dangerouslySetInnerHTML={homeInnerHTML} />
       </Layout>
     );
   }

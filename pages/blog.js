@@ -15,6 +15,7 @@ class Blog extends Component {
 
     const entries = await client.getEntries({
       content_type: 'blogPost',
+      'fields.language': query.lang,
       select: 'fields.title,fields.description,fields.slug,fields.publishDate'
     });
     return {
@@ -24,16 +25,18 @@ class Blog extends Component {
   }
   render() {
     const { router: { asPath }, entries, currentLang } = this.props;
-
+    const titleText = currentLang === 'es' ? 'Mis artículos' : 'My articles';
+ 
     return (
       <Layout currentUrl={asPath} currentLang={currentLang}>
-        <h1>My articles</h1>
+        <h1>{titleText}</h1>
         <ul className={container}>
           {entries.map(({ fields: { slug, title, description }, sys: { id } }) => (
             <li key={id}>
               <ArticlePreview
                 slug={slug}
                 title={title}
+                currentLang={currentLang}
                 description={description}
               />
             </li>
