@@ -1,0 +1,12 @@
+@import "../settings/colors";
+
+.about {
+  img {
+    margin: 2rem auto;
+    max-width: 700px;
+    width: 100%;
+    display: block;
+    border-radius: 6px;
+    box-shadow: 0px 0px 2rem $black-30;
+  }
+}

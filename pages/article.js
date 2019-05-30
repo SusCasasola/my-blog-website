@@ -1,39 +1,53 @@
 import { Component } from 'react';
-import { withRouter } from 'next/router'
+import getConfig from 'next/config';
+import { withRouter } from 'next/router';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+
+import Layout from 'components/Layout';
+import translate from 'utils/translate';
+import formatDate from 'utils/formatDate';
+import { articleDescription, articleBody, articleDate } from 'styles/components/article.scss';
+
 const contentful = require('contentful');
-import { css } from 'glamor';
-
-import Layout from '../components/Layout';
-
-const styles = () => css({
-  '& img': {
-    maxWidth: '100%',
-    marginBottom: '2rem',
-  }
-});
+const { publicRuntimeConfig } = getConfig();
 
 class Article extends Component {
   static async getInitialProps({ query }) {
-    const client = contentful.createClient({
-      space: process.env.CONTENTFUL_SPACE_ID,
-      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
-    })
+    const client = contentful.createClient(publicRuntimeConfig.contentLoad);
 
-    const entry = await client.getEntries({ content_type: 'blogPost', 'fields.slug': query.slug });
+    const entry = await client.getEntries({
+      content_type: 'blogPost',
+      'fields.slug': query.slug
+    });
 
     return {
       entry: entry.items[0],
+      currentLang: query.lang
     }
   }
   render() {
-    const { router: { pathname }, entry } = this.props;
+    const { router: { asPath }, entry, currentLang } = this.props;
+    const { publishDate, body, title, description } = entry.fields;
+    const options = {
+      renderNode: {
+        'embedded-asset-block': (node) =>
+          `<img src="${node.data.target.fields.file.url}"/>`
+      }
+    };
+    const articleBodyInnerHTML = { __html: documentToHtmlString(body, options) };
+
     return (
-      <Layout currentUrl={pathname}>
-        <section className="article" {...styles()}>
-          <h1>{entry.fields.title}</h1>
-          <img src={entry.fields.heroImage.fields.file.url} />
-          <p>{entry.fields.description}</p>
-        </section>
+      <Layout currentUrl={asPath} currentLang={currentLang} showLangSwitch={false}>
+        <article>
+          <h1>{title}</h1>
+          <header className={articleDescription}>
+            <span className={articleDate}>
+              {`${translate(currentLang, 'article_published_on')}${formatDate(publishDate)}`}
+            </span>
+            <p>{description}</p>
+          </header>
+          <section className={articleBody} dangerouslySetInnerHTML={articleBodyInnerHTML}/>
+        </article>  
       </Layout>
     );
   }

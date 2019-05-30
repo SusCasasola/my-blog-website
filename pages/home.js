@@ -1,39 +1,38 @@
+import { Component } from 'react';
+import getConfig from 'next/config';
 import { withRouter } from 'next/router'
-import { css } from 'glamor';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
-import Layout from '../components/Layout';
-import { TwitterIcon, GithubIcon, CodepenIcon, CodesandboxIcon } from '../icons';
+import Layout from 'components/Layout';
+import translate from 'utils/translate';
 
-const styles = () => css({
-  '& .home__links': {
-    '& a:not(:last-child)': {
-      marginRight: '1rem',
-    }
+const contentful = require('contentful');
+const { publicRuntimeConfig } = getConfig();
+
+class Home extends Component {
+  static async getInitialProps({ query }) {
+    const client = contentful.createClient(publicRuntimeConfig.contentLoad);
+    const homeText = await client.getEntries({
+      content_type: 'simpleRichText',
+      'fields.language': query.lang,
+      'fields.name': translate(query.lang, 'home_content_field'),
+    });
+
+    return {
+      currentLang: query.lang,
+      homeText: homeText.items[0].fields.richText
+    };
   }
-});
 
-const Home = props => (
-  <Layout currentUrl={props.router.pathname}>
-    <section className="home" {...styles()}>
-      <h1>Hi! I'm Sussie</h1>
-      <p>My name is Sussie Casasola and I'm a Frontend developer from Mexico City 🇲🇽. This site was created to share what I'm learning, to practice my skills and to let the world know some more things about me.</p>
-      <p>Feel free to stalk me on:</p>
-      <p className="home__links">
-        <a className="no-decoration" href="https://twitter.com/SusCasasola" target="_blank">
-          <TwitterIcon />
-        </a>
-        <a className="no-decoration" href="https://github.com/SusCasasola" target="_blank">
-          <GithubIcon />
-        </a>
-        <a className="no-decoration" href="https://codepen.io/SusCasasola/" target="_blank">
-          <CodepenIcon />
-        </a>
-        <a className="no-decoration" href="https://codesandbox.io/u/SusCasasola" target="_blank">
-          <CodesandboxIcon />
-        </a>
-      </p>
-    </section>
-  </Layout>
-);
+  render () {
+    const { router: { asPath }, homeText, currentLang } = this.props;
+    const homeInnerHTML = { __html: documentToHtmlString(homeText) };
+    return (
+      <Layout currentUrl={asPath} currentLang={currentLang}>
+        <section dangerouslySetInnerHTML={homeInnerHTML} />
+      </Layout>
+    );
+  }
+}
 
 export default withRouter(Home);
