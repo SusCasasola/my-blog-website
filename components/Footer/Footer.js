@@ -14,10 +14,15 @@ const Footer = ({ currentUrl, currentLang, showLangSwitch }) => {
     return <a href={newUrl}>{text[currentLang]}</a>;
   };
 
+  const builtWith = currentLang === 'es' ? 
+    'Construido con Next.js, Contentful y Netlify'
+    : 'Built with Next.js, Contentful and Netlify';
+
   return (
     <footer>
       {showLangSwitch && renderLangPicker()}
-      © Sussie Casasola - 2019
+      <span>{builtWith}</span>
+      <span>© Sussie Casasola - 2019</span>
     </footer>
   );
 };

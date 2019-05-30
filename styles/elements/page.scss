@@ -7,13 +7,23 @@ main {
   flex-direction: column;
   background-color: $white;
 }
+
+section {
+  margin-bottom: 3.5rem;
+}
+
 footer {
-  margin-top: 3.5rem;
+  margin-top: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: .8rem;
+  flex-wrap: wrap;
   & a::after {
     display: none;
+  }
+  a, span {
+    text-align: center;
+    margin: 0 1rem;
   }
 }
