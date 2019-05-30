@@ -4,6 +4,7 @@ import { withRouter } from 'next/router'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 import Layout from 'components/Layout';
+import { about } from 'styles/components/about.scss';
 
 const contentful = require('contentful');
 const { publicRuntimeConfig } = getConfig();
@@ -24,10 +25,16 @@ class About extends Component {
 
   render() {
     const { router: { asPath }, aboutText, currentLang } = this.props;
-    const aboutInnerHTML = { __html: documentToHtmlString(aboutText) };
+    const options = {
+      renderNode: {
+        'embedded-asset-block': (node) =>
+          `<img src="${node.data.target.fields.file.url}"/>`
+      }
+    };
+    const aboutInnerHTML = { __html: documentToHtmlString(aboutText, options) };
     return (
       <Layout currentUrl={asPath} currentLang={currentLang}>
-        <section dangerouslySetInnerHTML={aboutInnerHTML} />
+        <section className={about} dangerouslySetInnerHTML={aboutInnerHTML} />
       </Layout>
     );
   }

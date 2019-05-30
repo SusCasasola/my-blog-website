@@ -51,19 +51,23 @@ module.exports = withSass({
     const articlesEnglish = mapArticleRoutes(entriesEnglish.items, 'en');
     const articlesSpanish = mapArticleRoutes(entriesSpanish.items, 'es');
 
-    return Object.assign({}, articlesEnglish, articlesSpanish, {
+    const homePage = {
       '/': { page: '/home', query: { lang: 'en' } },
       '/en': { page: '/home', query: { lang: 'en' } },
       '/es': { page: '/home', query: { lang: 'es' } },
-
+    };
+    const blogPage = {
       '/blog': { page: '/blog', query: { lang: 'en' } },
       '/en/blog': { page: '/blog', query: { lang: 'en' } },
       '/es/blog': { page: '/blog', query: { lang: 'es' } },
-
+    };
+    const aboutPage = {
       '/about': { page: '/about', query: { lang: 'en' } },
       '/en/about': { page: '/about', query: { lang: 'en' } },
       '/es/about': { page: '/about', query: { lang: 'es' } }
-    });
+    }
+
+    return Object.assign({}, articlesEnglish, articlesSpanish, homePage, blogPage, aboutPage);
   },
 
   webpack(config) {

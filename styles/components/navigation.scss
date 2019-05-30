@@ -3,6 +3,12 @@
 
 .navigation {
   margin-bottom: 3.5rem;
+  ul {
+    max-width: none;
+  }
+  li::before {
+    display: none;
+  }
 }
 
 .activeLink {
