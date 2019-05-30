@@ -1,13 +1,4 @@
-.articleListItem {
-  &:first-child {
-    h2 {
-      margin-top: 0;
-    }
-  }
-  &:not(:last-child) {
-    margin-bottom: 3rem;
-  }
-}
+@import "../settings/colors";
 
 .blog {
   max-width: 600px;
@@ -17,5 +8,22 @@
     &::before {
       display: none;
     }
+  }
+}
+
+.articleListItem {
+  &:first-child {
+    h2 {
+      margin-top: 0;
+    }
+  }
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+  span {
+    text-transform: uppercase;
+    font-size: .7rem;
+    font-weight: 700;
+    color: $black-40;
   }
 }

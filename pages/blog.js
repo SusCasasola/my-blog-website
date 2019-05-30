@@ -31,11 +31,15 @@ class Blog extends Component {
       <Layout currentUrl={asPath} currentLang={currentLang}>
         <h1>{translate(currentLang, 'blog_page_title')}</h1>
         <ul className={blog} >
-          {entries.map(({ fields: { slug, title, description }, sys: { id } }) => (
+          {entries.map(({
+            sys: { id },
+            fields: { slug, title, description, publishDate },
+          }) => (
             <li key={id} className={articleListItem}>
               <ArticlePreview
                 slug={slug}
                 title={title}
+                publishDate={publishDate}
                 currentLang={currentLang}
                 description={description}
               />
