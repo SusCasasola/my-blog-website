@@ -4,7 +4,7 @@ import { withRouter } from 'next/router';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 import Layout from 'components/Layout';
-import { article } from 'styles/components/article.scss';
+import { article, description } from 'styles/components/article.scss';
 
 const contentful = require('contentful');
 const { publicRuntimeConfig } = getConfig();
@@ -38,7 +38,7 @@ class Article extends Component {
       <Layout currentUrl={asPath} currentLang={currentLang} showLangSwitch={false}>
         <article className={article}>
           <h1>{entry.fields.title}</h1>
-          <section>
+          <section className={description}>
             <p>{entry.fields.description}</p>
           </section>
           <section dangerouslySetInnerHTML={articleBodyInnerHTML}/>
