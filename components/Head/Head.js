@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-const HeadComponent = () => (
+const HeadComponent = ({ canonical }) => (
   <Head>
     <meta charSet='utf-8' />
     <meta name='viewport' content='initial-scale=1.0, width=device-width' />
@@ -8,6 +8,9 @@ const HeadComponent = () => (
     <title>Sussie Casasola | Frontend Engineer</title>
     <link href="https://fonts.googleapis.com/css?family=Poppins|Lato:300,400,700" rel="stylesheet" />
     <link rel="icon" href="/static/favicon.png" />
+    {canonical && (
+      <link rel="canonical" href={canonical} />
+    )}
   </Head>
 );
 

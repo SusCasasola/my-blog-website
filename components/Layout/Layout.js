@@ -5,9 +5,9 @@ import Head from 'components/Head';
 import Footer from 'components/Footer';
 import Navigation from 'components/Navigation';
 
-const Layout = ({ currentUrl, children, currentLang, showLangSwitch }) => (
+const Layout = ({ currentUrl, children, currentLang, showLangSwitch, canonical }) => (
   <Fragment>
-    <Head />
+    <Head canonical={canonical} />
     <main>
       <Navigation currentUrl={currentUrl} currentLang={currentLang} />
       {children}

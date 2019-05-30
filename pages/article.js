@@ -27,7 +27,7 @@ class Article extends Component {
   }
   render() {
     const { router: { asPath }, entry, currentLang } = this.props;
-    const { publishDate, body, title, description } = entry.fields;
+    const { publishDate, body, title, description, canonical } = entry.fields;
     const options = {
       renderNode: {
         'embedded-asset-block': (node) =>
@@ -37,7 +37,12 @@ class Article extends Component {
     const articleBodyInnerHTML = { __html: documentToHtmlString(body, options) };
 
     return (
-      <Layout currentUrl={asPath} currentLang={currentLang} showLangSwitch={false}>
+      <Layout
+        currentUrl={asPath}
+        currentLang={currentLang}
+        showLangSwitch={false}
+        canonical={canonical}
+      >
         <article>
           <h1>{title}</h1>
           <header className={articleDescription}>
