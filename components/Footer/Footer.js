@@ -1,27 +1,20 @@
 import PropTypes from 'prop-types';
+import translate from 'utils/translate';
 
 const Footer = ({ currentUrl, currentLang, showLangSwitch }) => {
   const renderLangPicker = () => {
-    const text = {
-      es: '🇺🇸 Cambiar a Inglés',
-      en: '🇲🇽 Switch to Spanish ',
-    };
     const newLang = currentLang === 'es' ? 'en' : 'es';
     let newUrl = currentUrl.replace(`/${currentLang}`,`/${newLang}`);
     if (newUrl === currentUrl) {
       newUrl = `/${newLang}${newUrl}`;
     }
-    return <a href={newUrl}>{text[currentLang]}</a>;
+    return <a href={newUrl}>{translate(currentLang, 'footer_switch_lang')}</a>;
   };
-
-  const builtWith = currentLang === 'es' ? 
-    'Construido con Next.js, Contentful y Netlify'
-    : 'Built with Next.js, Contentful and Netlify';
 
   return (
     <footer>
       {showLangSwitch && renderLangPicker()}
-      <span>{builtWith}</span>
+      <span>{translate(currentLang, 'footer_built_with')}</span>
       <span>© Sussie Casasola - 2019</span>
     </footer>
   );

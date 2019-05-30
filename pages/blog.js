@@ -3,9 +3,9 @@ import getConfig from 'next/config';
 import { withRouter } from 'next/router';
 
 import Layout from 'components/Layout';
+import translate from 'utils/translate';
 import ArticlePreview from 'components/ArticlePreview';
-import { container } from 'styles/objects/container.scss';
-import { articleListItem } from 'styles/components/blog.scss';
+import { articleListItem, blog } from 'styles/components/blog.scss';
 
 const contentful = require('contentful');
 const { publicRuntimeConfig } = getConfig();
@@ -26,12 +26,11 @@ class Blog extends Component {
   }
   render() {
     const { router: { asPath }, entries, currentLang } = this.props;
-    const titleText = currentLang === 'es' ? 'Mis artículos' : 'My articles';
  
     return (
       <Layout currentUrl={asPath} currentLang={currentLang}>
-        <h1>{titleText}</h1>
-        <ul className={container}>
+        <h1>{translate(currentLang, 'blog_page_title')}</h1>
+        <ul className={blog} >
           {entries.map(({ fields: { slug, title, description }, sys: { id } }) => (
             <li key={id} className={articleListItem}>
               <ArticlePreview

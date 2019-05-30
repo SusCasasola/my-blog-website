@@ -4,6 +4,7 @@ import { withRouter } from 'next/router'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 import Layout from 'components/Layout';
+import translate from 'utils/translate';
 import { about } from 'styles/components/about.scss';
 
 const contentful = require('contentful');
@@ -15,7 +16,7 @@ class About extends Component {
     const aboutText = await client.getEntries({
       content_type: 'simpleRichText',
       'fields.language': query.lang,
-      'fields.name': query.lang === 'es' ? 'Sobre mi' : 'About me'
+      'fields.name': translate(query.lang, 'about_content_field')
     });
     return {
       currentLang: query.lang,

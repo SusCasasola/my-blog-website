@@ -8,3 +8,14 @@
     margin-bottom: 3rem;
   }
 }
+
+.blog {
+  max-width: 600px;
+  margin: 0 auto 3.5rem;
+  padding-left: 0;
+  li {
+    &::before {
+      display: none;
+    }
+  }
+}

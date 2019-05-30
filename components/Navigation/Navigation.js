@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { flexEnd } from 'styles/objects/flexbox.scss';
+import translate from 'utils/translate';
 import { navigation, activeLink } from 'styles/components/navigation.scss';
 
 const Navigation = ({ currentUrl, currentLang }) => {
@@ -12,27 +12,21 @@ const Navigation = ({ currentUrl, currentLang }) => {
 
   return (
     <nav className={navigation}>
-      <ul className={flexEnd}>
-        <li>
-          <Link as={`/${currentLang}`} href={`/${currentLang}/home`}>
-            <a className={isActiveClass('/')}>
-              {currentLang === 'es' ? 'Inicio' : 'Home'}
-            </a>
-          </Link>
-        </li>
-        <li>
-          <Link href={`/${currentLang}/about`}>
-            <a className={isActiveClass('/about')}>
-              {currentLang === 'es' ? 'Sobre mi' : 'About'}
-            </a>
-          </Link>
-        </li>
-        <li>
-          <Link href={`/${currentLang}/blog`}>
-            <a className={isActiveClass('/blog')}>Blog</a>
-          </Link>
-        </li>
-      </ul>
+      <Link as={`/${currentLang}`} href={`/${currentLang}/home`}>
+        <a className={isActiveClass('/')}>
+          {translate(currentLang, 'navigation_home')}
+        </a>
+      </Link>
+      <Link href={`/${currentLang}/about`}>
+        <a className={isActiveClass('/about')}>
+          {translate(currentLang, 'navigation_about')}
+        </a>
+      </Link>
+      <Link href={`/${currentLang}/blog`}>
+        <a className={isActiveClass('/blog')}>
+          {translate(currentLang, 'navigation_blog')}
+        </a>
+      </Link>
     </nav>
   );
 }

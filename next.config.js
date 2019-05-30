@@ -73,7 +73,9 @@ module.exports = withSass({
   webpack(config) {
     config.plugins.push(new webpack.EnvironmentPlugin(localEnv))
     config.resolve.alias['pages'] = path.join(__dirname, './pages')
+    config.resolve.alias['utils'] = path.join(__dirname, './utils')
     config.resolve.alias['styles'] = path.join(__dirname, './styles')
+    config.resolve.alias['languages'] = path.join(__dirname, './languages')
     config.resolve.alias['components'] = path.join(__dirname, './components')
     return config
   }

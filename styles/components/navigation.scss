@@ -2,12 +2,12 @@
 @import "../settings/variables";
 
 .navigation {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   margin-bottom: 3.5rem;
-  ul {
-    max-width: none;
-  }
-  li::before {
-    display: none;
+  a:not(:last-child) {
+    margin-right: 1rem;
   }
 }
 

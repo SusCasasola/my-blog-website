@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import translate from 'utils/translate';
 
 const ArticlePreview = ({ title, description, slug, currentLang }) => (
   <article>
@@ -10,7 +11,7 @@ const ArticlePreview = ({ title, description, slug, currentLang }) => (
         as={`/${currentLang}/blog/${slug}`}
         href={{ pathname:'/article', query: { slug: slug, lang: currentLang } }}
       >
-        <a>{currentLang === 'es' ? 'Leer más...' : 'Read more...'}</a>
+        <a>{translate(currentLang, 'article_read_more')}</a>
       </Link>
     </p>
   </article>
