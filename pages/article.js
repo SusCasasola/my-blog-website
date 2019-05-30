@@ -4,7 +4,9 @@ import { withRouter } from 'next/router';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 import Layout from 'components/Layout';
-import { article, description } from 'styles/components/article.scss';
+import translate from 'utils/translate';
+import formatDate from 'utils/formatDate';
+import { articleDescription, articleBody, articleDate } from 'styles/components/article.scss';
 
 const contentful = require('contentful');
 const { publicRuntimeConfig } = getConfig();
@@ -25,7 +27,7 @@ class Article extends Component {
   }
   render() {
     const { router: { asPath }, entry, currentLang } = this.props;
-    const body = entry.fields.body;
+    const { publishDate, body, title, description } = entry.fields;
     const options = {
       renderNode: {
         'embedded-asset-block': (node) =>
@@ -36,12 +38,15 @@ class Article extends Component {
 
     return (
       <Layout currentUrl={asPath} currentLang={currentLang} showLangSwitch={false}>
-        <article className={article}>
-          <h1>{entry.fields.title}</h1>
-          <section className={description}>
-            <p>{entry.fields.description}</p>
+        <article>
+          <h1>{title}</h1>
+          <section className={articleDescription}>
+            <span className={articleDate}>
+              {`${translate(currentLang, 'article_published_on')}${formatDate(publishDate)}`}
+            </span>
+            <p>{description}</p>
           </section>
-          <section dangerouslySetInnerHTML={articleBodyInnerHTML}/>
+          <section className={articleBody} dangerouslySetInnerHTML={articleBodyInnerHTML}/>
         </article>  
       </Layout>
     );
