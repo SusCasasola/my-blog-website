@@ -31,7 +31,7 @@ class Blog extends Component {
       <Layout currentUrl={asPath} currentLang={currentLang}>
         <h1>{translate(currentLang, 'blog_page_title')}</h1>
         <ul className={blog} >
-          {entries.map(({
+          {entries.length > 0 ? entries.map(({
             sys: { id },
             fields: { slug, title, description, publishDate },
           }) => (
@@ -44,7 +44,9 @@ class Blog extends Component {
                 description={description}
               />
             </li>
-          ))}
+          )) : (
+            <p>Oops! I haven't write anything in English. I'm sorry. Coming soon...</p>
+          )}
         </ul>
       </Layout>
     );

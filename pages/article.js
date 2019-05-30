@@ -40,12 +40,12 @@ class Article extends Component {
       <Layout currentUrl={asPath} currentLang={currentLang} showLangSwitch={false}>
         <article>
           <h1>{title}</h1>
-          <section className={articleDescription}>
+          <header className={articleDescription}>
             <span className={articleDate}>
               {`${translate(currentLang, 'article_published_on')}${formatDate(publishDate)}`}
             </span>
             <p>{description}</p>
-          </section>
+          </header>
           <section className={articleBody} dangerouslySetInnerHTML={articleBodyInnerHTML}/>
         </article>  
       </Layout>
