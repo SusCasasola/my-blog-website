@@ -6,7 +6,8 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import Layout from 'components/Layout';
 import translate from 'utils/translate';
 import formatDate from 'utils/formatDate';
-import { articleDescription, articleBody, articleDate } from 'styles/components/article.scss';
+import articleRenderingOptions from 'utils/articleRenderingOptions';
+import { articleTitle, articleDescription, articleBody, articleDate } from 'styles/components/article.scss';
 
 const contentful = require('contentful');
 const { publicRuntimeConfig } = getConfig();
@@ -28,13 +29,8 @@ class Article extends Component {
   render() {
     const { router: { asPath }, entry, currentLang } = this.props;
     const { publishDate, body, title, description, canonical } = entry.fields;
-    const options = {
-      renderNode: {
-        'embedded-asset-block': (node) =>
-          `<img src="${node.data.target.fields.file.url}"/>`
-      }
-    };
-    const articleBodyInnerHTML = { __html: documentToHtmlString(body, options) };
+    
+    const articleBodyInnerHTML = { __html: documentToHtmlString(body, articleRenderingOptions) };
 
     return (
       <Layout
@@ -44,7 +40,7 @@ class Article extends Component {
         canonical={canonical}
       >
         <article>
-          <h1>{title}</h1>
+          <h1 className={articleTitle}>{title}</h1>
           <header className={articleDescription}>
             <span className={articleDate}>
               {`${translate(currentLang, 'article_published_on')}${formatDate(publishDate)}`}

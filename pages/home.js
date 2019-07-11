@@ -5,6 +5,8 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 import Layout from 'components/Layout';
 import translate from 'utils/translate';
+import homeRenderingOptions from 'utils/homeRenderingOptions';
+import { homeBody } from 'styles/components/home.scss';
 
 const contentful = require('contentful');
 const { publicRuntimeConfig } = getConfig();
@@ -26,10 +28,10 @@ class Home extends Component {
 
   render () {
     const { router: { asPath }, homeText, currentLang } = this.props;
-    const homeInnerHTML = { __html: documentToHtmlString(homeText) };
+    const homeInnerHTML = { __html: documentToHtmlString(homeText, homeRenderingOptions) };
     return (
       <Layout currentUrl={asPath} currentLang={currentLang}>
-        <section dangerouslySetInnerHTML={homeInnerHTML} />
+        <section className={homeBody} dangerouslySetInnerHTML={homeInnerHTML} />
       </Layout>
     );
   }
