@@ -34,7 +34,6 @@ const HeadComponent = ({ metaDataInfo, currentLang }) => (
     {metaDataInfo.canonical && (
       <link rel="canonical" href={metaDataInfo.canonical} />
     )}
-
     <meta property="og:image" content={metaDataInfo.image} />
     <meta property="og:title" content={metaDataInfo.title} />
     <meta property="og:url" content={metaDataInfo.url} />
