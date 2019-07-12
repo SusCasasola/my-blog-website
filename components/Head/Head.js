@@ -46,7 +46,7 @@ const HeadComponent = ({ metaDataInfo, currentLang }) => (
     <meta name="twitter:creator" content="@SusCasasola" />
     <meta name="twitter:title" content={metaDataInfo.title} />
     <meta name="twitter:description" content={metaDataInfo.description} />
-    <meta name="twitter:image:src" content={metaDataInfo.image} />
+    <meta name="twitter:image" content={metaDataInfo.image} />
   </Head>
 );
 
