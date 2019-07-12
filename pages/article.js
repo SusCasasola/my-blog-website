@@ -32,7 +32,7 @@ class Article extends Component {
     
     const articleBodyInnerHTML = { __html: documentToHtmlString(body, articleRenderingOptions) };
     const articleUrl = `https://www.sussie.dev/${currentLang}/blog/${slug}`;
-    const articleImageUrl = image.fields.file.url;
+    const articleImageUrl = `https:${image.fields.file.url}`;
     const metaDataInfo = { title, description, canonical, url: articleUrl, image: articleImageUrl };
 
     return (
