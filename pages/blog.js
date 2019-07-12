@@ -26,9 +26,15 @@ class Blog extends Component {
   }
   render() {
     const { router: { asPath }, entries, currentLang } = this.props;
- 
+    const metaDataInfo = {
+      title: `Sussie Casasola | Blog`,
+      description: translate(currentLang, 'meta_description_blog'),
+      url: `https://www.sussie.dev/${currentLang}/blog`,
+      canonical: 'https://www.sussie.dev/blog',
+      image: 'https://www.sussie.dev/static/default-meta-image.png'
+    };
     return (
-      <Layout currentUrl={asPath} currentLang={currentLang}>
+      <Layout currentUrl={asPath} currentLang={currentLang} metaDataInfo={metaDataInfo}>
         <h1>{translate(currentLang, 'blog_page_title')}</h1>
         <ul className={blog} >
           {entries.length > 0 ? entries.map(({

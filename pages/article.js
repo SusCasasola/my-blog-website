@@ -28,16 +28,19 @@ class Article extends Component {
   }
   render() {
     const { router: { asPath }, entry, currentLang } = this.props;
-    const { publishDate, body, title, description, canonical } = entry.fields;
+    const { publishDate, body, title, description, canonical, slug, image } = entry.fields;
     
     const articleBodyInnerHTML = { __html: documentToHtmlString(body, articleRenderingOptions) };
+    const articleUrl = `https://www.sussie.dev/${currentLang}/blog/${slug}`;
+    const articleImageUrl = image.fields.file.url;
+    const metaDataInfo = { title, description, canonical, url: articleUrl, image: articleImageUrl };
 
     return (
       <Layout
         currentUrl={asPath}
         currentLang={currentLang}
         showLangSwitch={false}
-        canonical={canonical}
+        metaDataInfo={metaDataInfo}
       >
         <article>
           <h1 className={articleTitle}>{title}</h1>
