@@ -33,8 +33,16 @@ class About extends Component {
       }
     };
     const aboutInnerHTML = { __html: documentToHtmlString(aboutText, options) };
+    const metaDataInfo = {
+      title: `Sussie Casasola | ${translate(currentLang, 'about_content_field')}`,
+      description: translate(currentLang, 'meta_description_about'),
+      url: `https://www.sussie.dev/${currentLang}/about`,
+      canonical: 'https://www.sussie.dev/about',
+      image: 'https://www.sussie.dev/static/default-meta-image.png'
+    };
+  
     return (
-      <Layout currentUrl={asPath} currentLang={currentLang}>
+      <Layout currentUrl={asPath} currentLang={currentLang} metaDataInfo={metaDataInfo}>
         <section className={about} dangerouslySetInnerHTML={aboutInnerHTML} />
       </Layout>
     );

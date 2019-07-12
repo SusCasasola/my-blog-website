@@ -10,10 +10,24 @@ li {
     color: $primary-color;
     font-weight: bold;
   }
+  
 }
 
-ul {
+ul, ol {
   margin: 0 auto 1.3em;
   padding-left: 1.5em;
   max-width: 600px;
+}
+
+ol {
+  counter-reset: orderedCounter;
+  li::before {
+    content: counter(orderedCounter) ".";
+    counter-increment: orderedCounter;
+    position: absolute;
+    left: -1.5em;
+    top: 0;
+    color: $primary-color;
+    font-weight: bold;
+  }
 }

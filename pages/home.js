@@ -29,8 +29,16 @@ class Home extends Component {
   render () {
     const { router: { asPath }, homeText, currentLang } = this.props;
     const homeInnerHTML = { __html: documentToHtmlString(homeText, homeRenderingOptions) };
+    const metaDataInfo = {
+      title: 'Sussie Casasola | Frontend Engineer',
+      description: translate(currentLang, 'meta_description_home'),
+      url: `https://www.sussie.dev/${currentLang}`,
+      canonical: 'https://www.sussie.dev',
+      image: 'https://www.sussie.dev/static/default-meta-image.png'
+    };
+
     return (
-      <Layout currentUrl={asPath} currentLang={currentLang}>
+      <Layout currentUrl={asPath} currentLang={currentLang} metaDataInfo={metaDataInfo}>
         <section className={homeBody} dangerouslySetInnerHTML={homeInnerHTML} />
       </Layout>
     );
