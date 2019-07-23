@@ -34,7 +34,6 @@ const HeadComponent = ({ metaDataInfo, currentLang }) => (
     {metaDataInfo.canonical && (
       <link rel="canonical" href={metaDataInfo.canonical} />
     )}
-
     <meta property="og:image" content={metaDataInfo.image} />
     <meta property="og:title" content={metaDataInfo.title} />
     <meta property="og:url" content={metaDataInfo.url} />
@@ -46,7 +45,7 @@ const HeadComponent = ({ metaDataInfo, currentLang }) => (
     <meta name="twitter:creator" content="@SusCasasola" />
     <meta name="twitter:title" content={metaDataInfo.title} />
     <meta name="twitter:description" content={metaDataInfo.description} />
-    <meta name="twitter:image" content={metaDataInfo.image} />
+    <meta name="twitter:image:url" content={metaDataInfo.image} />
   </Head>
 );
 
