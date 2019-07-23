@@ -2,7 +2,7 @@
   "name": "my-website-2019",
   "author": "@SusCasasola",
   "title": "Sussie Casasola Website",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "scripts": {
     "dev": "next",
     "build": "next build",
