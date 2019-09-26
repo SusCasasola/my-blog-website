@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import Head from 'next/head';
 
 const HeadComponent = ({ metaDataInfo, currentLang }) => (
@@ -8,7 +10,7 @@ const HeadComponent = ({ metaDataInfo, currentLang }) => (
     <meta name="keywords" content="Sussie, Casasola, Frontend, Engineer, CDMX, Frontend Love" />
     <meta name="author" content="SusCasasola" />
     <meta name="google-site-verification" content="-tLIxzZ0fXz5rPGmLLHFYohM_6qBvdF0qqoi3whlA9g" />
-    
+
     <link rel="apple-touch-icon" sizes="57x57" href="/static/favicon/apple-icon-57x57.png" />
     <link rel="apple-touch-icon" sizes="60x60" href="/static/favicon/apple-icon-60x60.png" />
     <link rel="apple-touch-icon" sizes="72x72" href="/static/favicon/apple-icon-72x72.png" />
@@ -18,7 +20,12 @@ const HeadComponent = ({ metaDataInfo, currentLang }) => (
     <link rel="apple-touch-icon" sizes="144x144" href="/static/favicon/apple-icon-144x144.png" />
     <link rel="apple-touch-icon" sizes="152x152" href="/static/favicon/apple-icon-152x152.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-icon-180x180.png" />
-    <link rel="icon" type="image/png" sizes="192x192"  href="/static/favicon/android-icon-192x192.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/static/favicon/android-icon-192x192.png"
+    />
     <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="96x96" href="/static/favicon/favicon-96x96.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png" />
@@ -26,14 +33,15 @@ const HeadComponent = ({ metaDataInfo, currentLang }) => (
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="/static/favicon/ms-icon-144x144.png" />
     <meta name="theme-color" content="#ffffff" />
-    <link href="https://fonts.googleapis.com/css?family=Poppins|Lato:300,400,700" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins|Lato:300,400,700"
+      rel="stylesheet"
+    />
 
     <html lang={currentLang} />
     <title>{metaDataInfo.title}</title>
     <meta name="description" content={metaDataInfo.description} />
-    {metaDataInfo.canonical && (
-      <link rel="canonical" href={metaDataInfo.canonical} />
-    )}
+    {metaDataInfo.canonical && <link rel="canonical" href={metaDataInfo.canonical} />}
     <meta property="og:image" content={metaDataInfo.image} />
     <meta property="og:title" content={metaDataInfo.title} />
     <meta property="og:url" content={metaDataInfo.url} />
@@ -48,5 +56,10 @@ const HeadComponent = ({ metaDataInfo, currentLang }) => (
     <meta name="twitter:image:url" content={metaDataInfo.image} />
   </Head>
 );
+
+HeadComponent.propTypes = {
+  metaDataInfo: PropTypes.object.isRequired, //eslint-disable-line
+  currentLang: PropTypes.string.isRequired,
+};
 
 export default HeadComponent;

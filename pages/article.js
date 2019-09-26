@@ -1,4 +1,5 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import getConfig from 'next/config';
 import { withRouter } from 'next/router';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
@@ -7,9 +8,15 @@ import Layout from 'components/Layout';
 import translate from 'utils/translate';
 import formatDate from 'utils/formatDate';
 import articleRenderingOptions from 'utils/articleRenderingOptions';
-import { articleTitle, articleDescription, articleBody, articleDate } from 'styles/components/article.scss';
+import {
+  articleTitle,
+  articleBody,
+  articleDate,
+  articleDescription,
+} from 'styles/components/article.scss';
 
 const contentful = require('contentful');
+
 const { publicRuntimeConfig } = getConfig();
 
 class Article extends Component {
@@ -18,22 +25,34 @@ class Article extends Component {
 
     const entry = await client.getEntries({
       content_type: 'blogPost',
-      'fields.slug': query.slug
+      'fields.slug': query.slug,
     });
 
     return {
       entry: entry.items[0],
-      currentLang: query.lang
-    }
+      currentLang: query.lang,
+    };
   }
+
   render() {
-    const { router: { asPath }, entry, currentLang } = this.props;
+    const {
+      router: { asPath },
+      entry,
+      currentLang,
+    } = this.props;
     const { publishDate, body, title, description, canonical, slug, image } = entry.fields;
-    
+
     const articleBodyInnerHTML = { __html: documentToHtmlString(body, articleRenderingOptions) };
     const articleUrl = `https://www.sussie.dev/${currentLang}/blog/${slug}`;
     const articleImageUrl = `https:${image.fields.file.url}`;
-    const metaDataInfo = { title, description, canonical, url: articleUrl, image: articleImageUrl };
+    const splittedDescription = `${description.substring(0, 47)}...`;
+    const metaDataInfo = {
+      title,
+      description: splittedDescription,
+      canonical,
+      url: articleUrl,
+      image: articleImageUrl,
+    };
 
     return (
       <Layout
@@ -50,11 +69,17 @@ class Article extends Component {
             </span>
             <p>{description}</p>
           </header>
-          <section className={articleBody} dangerouslySetInnerHTML={articleBodyInnerHTML}/>
-        </article>  
+          <section className={articleBody} dangerouslySetInnerHTML={articleBodyInnerHTML} />
+        </article>
       </Layout>
     );
   }
+}
+
+Article.propTypes = {
+  router: PropTypes.shape({ asPath: PropTypes.string }).isRequired,
+  entry: PropTypes.object.isRequired, //eslint-disable-line
+  currentLang: PropTypes.string.isRequired,
 };
 
 export default withRouter(Article);
