@@ -1,10 +1,11 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import translate from 'utils/translate';
 
 const Footer = ({ currentUrl, currentLang, showLangSwitch }) => {
   const renderLangPicker = () => {
     const newLang = currentLang === 'es' ? 'en' : 'es';
-    let newUrl = currentUrl.replace(`/${currentLang}`,`/${newLang}`);
+    let newUrl = currentUrl.replace(`/${currentLang}`, `/${newLang}`);
     if (newUrl === currentUrl) {
       newUrl = `/${newLang}${newUrl}`;
     }
@@ -21,7 +22,9 @@ const Footer = ({ currentUrl, currentLang, showLangSwitch }) => {
 };
 
 Footer.propTypes = {
-  showLangSwitch: PropTypes.bool
+  showLangSwitch: PropTypes.bool,
+  currentUrl: PropTypes.string.isRequired,
+  currentLang: PropTypes.string.isRequired,
 };
 
 Footer.defaultProps = {

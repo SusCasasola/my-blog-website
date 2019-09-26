@@ -1,6 +1,7 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import getConfig from 'next/config';
-import { withRouter } from 'next/router'
+import { withRouter } from 'next/router';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 import Layout from 'components/Layout';
@@ -9,6 +10,7 @@ import homeRenderingOptions from 'utils/homeRenderingOptions';
 import { homeBody } from 'styles/components/home.scss';
 
 const contentful = require('contentful');
+
 const { publicRuntimeConfig } = getConfig();
 
 class Home extends Component {
@@ -22,19 +24,23 @@ class Home extends Component {
 
     return {
       currentLang: query.lang,
-      homeText: homeText.items[0].fields.richText
+      homeText: homeText.items[0].fields.richText,
     };
   }
 
-  render () {
-    const { router: { asPath }, homeText, currentLang } = this.props;
+  render() {
+    const {
+      router: { asPath },
+      homeText,
+      currentLang,
+    } = this.props;
     const homeInnerHTML = { __html: documentToHtmlString(homeText, homeRenderingOptions) };
     const metaDataInfo = {
       title: 'Sussie Casasola | Frontend Engineer',
       description: translate(currentLang, 'meta_description_home'),
       url: `https://www.sussie.dev/${currentLang}`,
       canonical: 'https://www.sussie.dev',
-      image: 'https://www.sussie.dev/static/default-meta-image.png'
+      image: 'https://www.sussie.dev/static/default-meta-image.png',
     };
 
     return (
@@ -44,5 +50,11 @@ class Home extends Component {
     );
   }
 }
+
+Home.propTypes = {
+  router: PropTypes.shape({ asPath: PropTypes.string }).isRequired,
+  homeText: PropTypes.string.isRequired,
+  currentLang: PropTypes.string.isRequired,
+};
 
 export default withRouter(Home);

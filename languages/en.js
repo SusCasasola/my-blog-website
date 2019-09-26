@@ -1,5 +1,6 @@
 const en = {
-  meta_description_home: "Welcome to my website :) This site was created to practice and write about what I'm learning.",
+  meta_description_home:
+    "Welcome to my website :) This site was created to practice and write about what I'm learning.",
   meta_description_about: 'This part of the site describes a little more about who I am.',
   meta_description_blog: "This is the list of articles I've recently published",
   navigation_home: 'Home',
@@ -11,7 +12,7 @@ const en = {
   article_published_on: 'Published on: ',
   article_read_more: 'Read more...',
   footer_switch_lang: '🇲🇽 Switch to Spanish',
-  footer_built_with: 'Built with Next.js, Contentful and Netlify'
+  footer_built_with: 'Built with Next.js, Contentful and Netlify',
 };
 
 export default en;
