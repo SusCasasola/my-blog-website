@@ -3,7 +3,7 @@
   "author": "@SusCasasola",
   "title": "Sussie Casasola Website",
   "license": "MIT",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "scripts": {
     "dev": "next",
     "build": "next build",
