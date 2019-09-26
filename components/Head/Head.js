@@ -8,7 +8,7 @@ const HeadComponent = ({ metaDataInfo, currentLang }) => (
     <meta httpEquiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <meta name="author" content="SusCasasola" />
-    <meta name="google-site-verification" content="JrxH-_FC_zpQ-Rpx7Mx4-d4cpoH_loKqF1p7FhIoYxk" />
+    <meta name="google-site-verification" content="-tLIxzZ0fXz5rPGmLLHFYohM_6qBvdF0qqoi3whlA9g" />
 
     <link rel="apple-touch-icon" sizes="57x57" href="/static/favicon/apple-icon-57x57.png" />
     <link rel="apple-touch-icon" sizes="60x60" href="/static/favicon/apple-icon-60x60.png" />
