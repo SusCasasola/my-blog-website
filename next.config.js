@@ -61,13 +61,8 @@ module.exports = withSass({
       '/en/blog': { page: '/blog', query: { lang: 'en' } },
       '/es/blog': { page: '/blog', query: { lang: 'es' } },
     };
-    const aboutPage = {
-      '/about': { page: '/about', query: { lang: 'en' } },
-      '/en/about': { page: '/about', query: { lang: 'en' } },
-      '/es/about': { page: '/about', query: { lang: 'es' } },
-    };
 
-    return { ...articlesEnglish, ...articlesSpanish, ...homePage, ...blogPage, ...aboutPage };
+    return { ...articlesEnglish, ...articlesSpanish, ...homePage, ...blogPage };
   },
 
   webpack(config) {
