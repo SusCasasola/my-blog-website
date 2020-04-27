@@ -1,7 +1,17 @@
 code {
   background-color: var(--black-10);
-  padding: 0 0.333rem;
   font-size: .9rem;
-  vertical-align: middle;
   border-radius: 0.222rem;
+  color: var(--black);
+
+  b &, & b {
+    padding: 0 0.333rem;
+    vertical-align: middle;
+    font-weight: 400;
+  }
+
+  p > & {
+    display: block;
+    padding: 1rem;
+  }
 } 
