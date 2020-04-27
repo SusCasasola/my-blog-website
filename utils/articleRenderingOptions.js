@@ -15,7 +15,7 @@ const renderComponentByEntryType = (entryType, nodeInput) => {
           ${penTitle}</a> by Sussie Casasola (<a href="https://codepen.io/SusCasasola">@SusCasasola</a>)
           on <a href="https://codepen.io">CodePen</a>.</span>
         </p>
-        <script async src="https://static.codepen.io/assets/embed/ei.js"></script>    
+        <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
       `;
     },
   };

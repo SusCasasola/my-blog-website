@@ -6,11 +6,18 @@
   align-items: center;
   justify-content: flex-end;
   margin-bottom: 3.5rem;
-  a:not(:last-child) {
-    margin-right: 1rem;
+
+  a {
+    color: var(--black);
+    font-family: var(--primary-font-family);
+
+    &.activeLink, &:hover {
+      color: var(--plum);
+    }
+
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
   }
 }
 
-.activeLink {
-  color: $primary-color;
-}

@@ -1,39 +1,57 @@
 :root {
-  font-size: 18px;
-  line-height: 1.7rem;
+  --white: #{$white};
+  --black: #{$black};
+  --black-10: #{rgba($black, 0.10)};
+  --black-20: #{rgba($black, 0.20)};
+  --black-30: #{rgba($black, 0.30)};
+  --black-40: #{rgba($black, 0.40)};
+  --black-50: #{rgba($black, 0.50)};
+  --black-70: #{rgba($black, 0.70)};
+  --plum: #{$plum};
+  --plum-dark: #{darken($plum, 30%)};
+  --gray: #{$gray};
+
+  --primary-font-family: #{$primary-font-family};
+  --secondary-font-family: #{$secondary-font-family};
+
+  --desktop-font-size: #{$desktop-font-size};
+  --tablet-font-size: #{$tablet-font-size};
+  --mobile-font-size: #{$mobile-font-size};
 }
 
 ::selection,
 ::-moz-selection {
-  color: $white;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: $primary-color;
+  color: var(--white);
+  background-color: var(--plum);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothi-ng: grayscale;
+}
+
+html {
+  font-size: var(--mobile-font-size);
+
+  @media screen and (min-width: 500px) {
+    font-size: var(--tablet-font-size);
+  }
+  
+  @media screen and (min-width: 700px) {
+    font-size: var(--desktop-font-size);
+  }
 }
 
 body {
-  color: $text-color;
-  font-family: $secondary-font;
-  background-color: $secondary-color;
+  color: var(--black-70);
+  font-family: var(--secondary-font-family);
+  line-height: 1.7;
+  background-color: var(--plum);
+
   > div {
-    background-color: $white;
-  }
-}
-
-@media screen and (max-width: 700px) {
-  :root {
-    font-size: 16px;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  :root {
-    font-size: 14px;
+    background-color: var(--white);
   }
 }

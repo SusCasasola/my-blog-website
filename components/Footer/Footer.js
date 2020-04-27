@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import translate from 'utils/translate';
 
 const Footer = ({ currentUrl, currentLang, showLangSwitch }) => {
+  const currentYear = new Date().getFullYear();
+
   const renderLangPicker = () => {
     const newLang = currentLang === 'es' ? 'en' : 'es';
     let newUrl = currentUrl.replace(`/${currentLang}`, `/${newLang}`);
@@ -16,7 +18,7 @@ const Footer = ({ currentUrl, currentLang, showLangSwitch }) => {
     <footer>
       {showLangSwitch && renderLangPicker()}
       <span>{translate(currentLang, 'footer_built_with')}</span>
-      <span>© Sussie Casasola - 2019</span>
+      <span>{`© Sussie Casasola - ${currentYear}`}</span>
     </footer>
   );
 };

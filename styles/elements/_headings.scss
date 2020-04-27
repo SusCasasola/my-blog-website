@@ -4,15 +4,16 @@ h3,
 h4,
 h5 {
   line-height: 1.2;
-  color: $title-color;
-  font-family: $primary-font;
+  color: var(--black);
+  font-family: var(--primary-font-family);
   font-weight: bold;
 }
 
 h1 {
-  font-size: 2.3rem;
-  margin-bottom: 3rem;
   position: relative;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+
   &::after {
     content: "";
     display: inline-block;
@@ -24,8 +25,9 @@ h1 {
     background-repeat: no-repeat;
     vertical-align: bottom;
   }
-  @media screen and (max-width: 500px) {
-    font-size: 2.5rem;
+
+  @media screen and (min-width: 500px) {
+    font-size: 2.3rem;
   }
 }
 

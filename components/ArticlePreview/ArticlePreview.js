@@ -1,25 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
 
 import translate from 'utils/translate';
 import formatDate from 'utils/formatDate';
 
 const ArticlePreview = ({ title, description, publishDate, slug, currentLang }) => (
-  <article>
-    <h2>{title}</h2>
-    <span>{`${translate(currentLang, 'article_published_on')}${formatDate(publishDate)}`}</span>
-    <p>
-      {description}
-      <br />
-      <Link
-        as={`/${currentLang}/blog/${slug}`}
-        href={{ pathname: '/article', query: { slug, lang: currentLang } }}
-      >
-        <a>{translate(currentLang, 'article_read_more')}</a>
-      </Link>
-    </p>
-  </article>
+  <a href={`/${currentLang}/blog/${slug}`}>
+    <article>
+      <h2>{title}</h2>
+      <span>{`${translate(currentLang, 'article_published_on')}${formatDate(publishDate)}`}</span>
+      <p>{description}</p>
+    </article>
+  </a>
 );
 
 ArticlePreview.propTypes = {
