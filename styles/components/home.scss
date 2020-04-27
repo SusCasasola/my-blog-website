@@ -2,11 +2,11 @@
 
 .homeBody {
   img {
-    width: 150px;
-    height: 150px;
+    width: 8.333rem;
+    height: 8.333rem;
     margin: 0 auto;
     display: block;
-    border-radius: 200px;
-    box-shadow: 0px 0px 1rem $black-20;
+    border-radius: 50%;
+    box-shadow: 0px 0px 1rem var(--black-20);
   }
 }
