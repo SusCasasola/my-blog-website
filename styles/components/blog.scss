@@ -9,6 +9,21 @@
     &::before {
       display: none;
     }
+
+    a {
+      display: block;
+      padding: 2rem;
+      box-shadow: 0 0 .2rem var(--black-20);
+      border-radius: 0.333rem;
+      transition: box-shadow .2s ease;
+      &:hover {
+        box-shadow: 0 0 1rem var(--black-20);
+      }
+    }
+
+    h2 {
+      margin-top: 0;
+    }
   }
 }
 
@@ -24,13 +39,15 @@
   }
 
   span {
-    text-transform: uppercase;
     font-size: .7rem;
     font-weight: 700;
     color: var(--black-40);
   }
-
-  p {
+  
+  a p {
+    margin-top: .5rem;
+    font-weight: 400;
     font-size: 0.85rem;
+    color: var(--black-50);
   }
 }
