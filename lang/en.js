@@ -1,6 +1,4 @@
 const en = {
-  meta_description_blog: "This is the list of all articles I've published",
-
   navigation_home: 'Home',
   navigation_blog: 'Articles',
 

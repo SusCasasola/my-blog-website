@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import WebsitePage from 'components/WebsitePage';
-import HomePage from 'screens/Home';
+import HomeScreen from 'screens/Home';
 import Head from 'components/Head';
 
 class Home extends Component {
   static async getInitialProps({ query }) {
-    // AWAIT ENTRIES CONTENTFUL
+    // AWAIT RECENT ENTRIES CONTENTFUL
 
     return {
       lang: query.lang,
-      lastEntries: [1, 2, 3],
+      lastEntries: [],
     };
   }
 
@@ -27,13 +27,14 @@ class Home extends Component {
       title: 'Sussie Casasola | Frontend Engineer',
       description: descriptionByLang[lang],
       url: `https://www.sussie.dev/${lang}`,
+      canonical: 'https://www.sussie.dev/',
       image: 'https://www.sussie.dev/static/default-meta-image.png',
     };
 
     return (
       <WebsitePage lang={lang}>
         <Head {...metaDataInfo} />
-        <HomePage lastEntries={lastEntries} />
+        <HomeScreen lastEntries={lastEntries} />
       </WebsitePage>
     );
   }
