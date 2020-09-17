@@ -52,6 +52,9 @@ body {
   background-color: var(--plum);
 
   > div {
+    display: flex;
+    flex-direction: column;
     background-color: var(--white);
+    min-height: 100vh;
   }
 }
