@@ -68,11 +68,13 @@ module.exports = withSass({
   webpack(config) {
     const modifiedConfig = config;
     modifiedConfig.plugins.push(new webpack.EnvironmentPlugin(localEnv));
-    modifiedConfig.resolve.alias.pages = path.join(__dirname, './pages');
-    modifiedConfig.resolve.alias.utils = path.join(__dirname, './utils');
-    modifiedConfig.resolve.alias.styles = path.join(__dirname, './styles');
-    modifiedConfig.resolve.alias.languages = path.join(__dirname, './languages');
     modifiedConfig.resolve.alias.components = path.join(__dirname, './components');
+    modifiedConfig.resolve.alias.contentful = path.join(__dirname, './contentful');
+    modifiedConfig.resolve.alias.lang = path.join(__dirname, './lang');
+    modifiedConfig.resolve.alias.pages = path.join(__dirname, './pages');
+    modifiedConfig.resolve.alias.screens = path.join(__dirname, './screens');
+    modifiedConfig.resolve.alias.styles = path.join(__dirname, './styles');
+    modifiedConfig.resolve.alias.utils = path.join(__dirname, './utils');
     return modifiedConfig;
   },
 });
