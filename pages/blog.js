@@ -11,7 +11,7 @@ class Blog extends Component {
 
     return {
       lang: query.lang,
-      lastEntries: [],
+      allEntries: [],
     };
   }
 

@@ -19,8 +19,8 @@ class Home extends Component {
     const { lang, lastEntries } = this.props;
 
     const descriptionByLang = {
-      en: 'Welcome to my website!',
-      es: '¡Bienvenido(a) a mi sitio web!',
+      en: 'Welcome to my blog!',
+      es: '¡Bienvenido(a) a mi blog!',
     };
 
     const metaDataInfo = {

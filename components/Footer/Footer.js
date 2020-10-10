@@ -15,7 +15,7 @@ const Footer = () => {
         <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">
           Next
         </a>
-        ,
+        {`, `}
         <a href="https://www.contentful.com/" target="_blank" rel="noopener noreferrer">
           Contentful
         </a>

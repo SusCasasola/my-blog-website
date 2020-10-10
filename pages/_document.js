@@ -19,6 +19,15 @@ class MyDocument extends Document {
             name="google-site-verification"
             content="-tLIxzZ0fXz5rPGmLLHFYohM_6qBvdF0qqoi3whlA9g"
           />
+          <meta name="msapplication-TileColor" content="#ffffff" />
+          <meta name="msapplication-TileImage" content="/static/favicon/ms-icon-144x144.png" />
+          <meta name="theme-color" content="#ffffff" />
+
+          <link
+            rel="preload"
+            href="https://fonts.googleapis.com/css?family=Poppins|Lato:300,400,700"
+            as="style"
+          />
 
           <link rel="apple-touch-icon" sizes="57x57" href="/static/favicon/apple-icon-57x57.png" />
           <link rel="apple-touch-icon" sizes="60x60" href="/static/favicon/apple-icon-60x60.png" />
@@ -74,9 +83,6 @@ class MyDocument extends Document {
             href="/static/favicon/favicon-16x16.png"
           />
           <link rel="manifest" href="/static/favicon/manifest.json" />
-          <meta name="msapplication-TileColor" content="#ffffff" />
-          <meta name="msapplication-TileImage" content="/static/favicon/ms-icon-144x144.png" />
-          <meta name="theme-color" content="#ffffff" />
 
           <link
             href="https://fonts.googleapis.com/css?family=Poppins|Lato:300,400,700"
