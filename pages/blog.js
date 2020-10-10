@@ -4,14 +4,15 @@ import PropTypes from 'prop-types';
 import WebsitePage from 'components/WebsitePage';
 import BlogScreen from 'screens/Blog';
 import Head from 'components/Head';
+import getAllEntries from 'contentful/getAllEntries';
 
 class Blog extends Component {
   static async getInitialProps({ query }) {
-    // AWAIT ALL ENTRIES CONTENTFUL
+    const allEntries = await getAllEntries(query.lang);
 
     return {
       lang: query.lang,
-      allEntries: [],
+      allEntries,
     };
   }
 

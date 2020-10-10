@@ -2,6 +2,9 @@ const en = {
   navigation_home: 'Home',
   navigation_blog: 'Articles',
 
+  home_page_title: 'Welcome!',
+  home_page_description: 'Here you can find a list of the last articles I have published.',
+
   blog_page_title: 'All my articles',
 
   article_published_on: 'Published on:',

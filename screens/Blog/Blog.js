@@ -1,5 +1,5 @@
 import React from 'react';
 
-const Blog = () => <div>Soy el blog</div>;
+const Blog = ({ allEntries }) => <div>{console.log(allEntries)}Soy el blog</div>;
 
 export default Blog;

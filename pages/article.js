@@ -4,14 +4,15 @@ import PropTypes from 'prop-types';
 import WebsitePage from 'components/WebsitePage';
 import ArticleScreen from 'screens/Article';
 import Head from 'components/Head';
+import getEntry from 'contentful/getEntry';
 
 class Article extends Component {
   static async getInitialProps({ query }) {
-    // AWAIT ARTICLE INFO
+    const entry = await getEntry(query.slug);
 
     return {
       lang: query.lang,
-      entry: {},
+      entry,
     };
   }
 

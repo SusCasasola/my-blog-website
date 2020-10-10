@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Article = () => <div>Soy el article</div>;
+const Article = ({ entry }) => <div>{console.log(entry)}Soy el article</div>;
 
 export default Article;
 

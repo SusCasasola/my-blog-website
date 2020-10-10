@@ -4,14 +4,15 @@ import PropTypes from 'prop-types';
 import WebsitePage from 'components/WebsitePage';
 import HomeScreen from 'screens/Home';
 import Head from 'components/Head';
+import getLastEntries from 'contentful/getLastEntries';
 
 class Home extends Component {
   static async getInitialProps({ query }) {
-    // AWAIT RECENT ENTRIES CONTENTFUL
+    const lastEntries = await getLastEntries(query.lang);
 
     return {
       lang: query.lang,
-      lastEntries: [],
+      lastEntries,
     };
   }
 
