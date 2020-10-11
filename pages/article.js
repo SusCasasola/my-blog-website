@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import WebsitePage from 'components/WebsitePage';
 import ArticleScreen from 'screens/Article';
 import Head from 'components/Head';
-import getEntry from 'contentful/getEntry';
+import getEntry from 'content/getEntry';
 
 class Article extends Component {
   static async getInitialProps({ query }) {

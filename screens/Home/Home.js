@@ -2,18 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { useTranslate } from 'components/I18nContext';
+import ArticlePreview from 'components/ArticlePreview';
 
 const Home = ({ lastEntries }) => {
   const { t } = useTranslate();
-  console.log(lastEntries);
 
   return (
     <section>
       <h1>{t('home_page_title')}</h1>
       <p>{t('home_page_description')}</p>
-      <ul>
+      <ul className="no-list-style">
         {lastEntries.map(entry => (
-          <li key={entry.id}>{entry.name}</li>
+          <li key={entry.sys.id}>
+            <ArticlePreview
+              title={entry.fields.title}
+              description={entry.fields.description}
+              publishDate={entry.fields.publishDate}
+              slug={entry.fields.slug}
+            />
+          </li>
         ))}
       </ul>
     </section>

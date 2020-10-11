@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import WebsitePage from 'components/WebsitePage';
 import BlogScreen from 'screens/Blog';
 import Head from 'components/Head';
-import getAllEntries from 'contentful/getAllEntries';
+import getAllEntries from 'content/getAllEntries';
 
 class Blog extends Component {
   static async getInitialProps({ query }) {

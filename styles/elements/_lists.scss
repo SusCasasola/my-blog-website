@@ -1,34 +1,44 @@
-li {
-  position: relative;
-  display: block;
-  line-height: 1.7;
+ul,ol {
 
-  &::before {
-    content: "\2022";
-    position: absolute;
-    left: -1.5rem;
-    top: 0;
-    color: var(--plum);
-    font-weight: bold;
+  li {
+    position: relative;
+    display: block;
+    line-height: 1.7;
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
   }
-  
+
+  &:not([class="no-list-style"]) {
+    padding-left: 1.5rem;
+  }
 }
 
-ul, ol {
-  margin: 0 auto 1.3rem;
-  padding-left: 1.5rem;
-  max-width: 33.333rem;
+ul {
+  &:not([class="no-list-style"]) {
+    li::before {
+      content: "\2022";
+      position: absolute;
+      left: -1.5rem;
+      top: 0;
+      color: var(--plum);
+      font-weight: bold;
+    }
+  }
 }
 
 ol {
   counter-reset: orderedCounter;
-  li::before {
-    content: counter(orderedCounter) ".";
-    counter-increment: orderedCounter;
-    position: absolute;
-    left: -1.5rem;
-    top: 0;
-    color: var(--plum);
-    font-weight: bold;
+  &:not([class="no-list-style"]) {
+    li::before {
+      content: counter(orderedCounter) ".";
+      counter-increment: orderedCounter;
+      position: absolute;
+      left: -1.5rem;
+      top: 0;
+      color: var(--plum);
+      font-weight: bold;
+    }
+  
   }
 }

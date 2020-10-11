@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import WebsitePage from 'components/WebsitePage';
 import HomeScreen from 'screens/Home';
 import Head from 'components/Head';
-import getLastEntries from 'contentful/getLastEntries';
+import getLastEntries from 'content/getLastEntries';
 
 class Home extends Component {
   static async getInitialProps({ query }) {
