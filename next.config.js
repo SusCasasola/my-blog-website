@@ -52,14 +52,14 @@ module.exports = withSass({
     const articlesSpanish = mapArticleRoutes(entriesSpanish.items, 'es');
 
     const homePage = {
-      '/': { page: '/home', query: { lang: 'en' } },
-      '/en': { page: '/home', query: { lang: 'en' } },
+      '/': { page: '/home', query: { lang: 'es' } },
       '/es': { page: '/home', query: { lang: 'es' } },
+      '/en': { page: '/home', query: { lang: 'en' } },
     };
     const blogPage = {
-      '/blog': { page: '/blog', query: { lang: 'en' } },
-      '/en/blog': { page: '/blog', query: { lang: 'en' } },
+      '/blog': { page: '/blog', query: { lang: 'es' } },
       '/es/blog': { page: '/blog', query: { lang: 'es' } },
+      '/en/blog': { page: '/blog', query: { lang: 'en' } },
     };
 
     return { ...articlesEnglish, ...articlesSpanish, ...homePage, ...blogPage };
