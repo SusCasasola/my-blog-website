@@ -1,0 +1,15 @@
+.footerStyles {
+  width: 100%;
+  padding: 2rem 1rem;
+  background-color: var(--gray-light);
+
+  p {
+    text-align: center;
+  }
+
+  a {
+    color: var(--black-70);
+    text-decoration: underline;
+    font-weight: 400;
+  }
+}

@@ -1,11 +1,12 @@
-@import "settings/variables";
+@import "settings/colors";
+@import "settings/fonts";
 
 @import "generic/reset";
 
+@import "elements/buttons";
 @import "elements/code";
 @import "elements/headings";
 @import "elements/images";
 @import "elements/links";
 @import "elements/lists";
-@import "elements/page";
 @import "elements/paragraphs";

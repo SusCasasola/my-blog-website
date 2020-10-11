@@ -1,0 +1,42 @@
+.headerStyles {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: 0 2rem;
+  height: 3.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--white);
+  box-shadow: 0 0 3rem var(--black-20);
+
+  a,
+  img {
+    display: block;
+  }
+
+  img {
+    height: 1.75rem;
+  }
+
+  ul {
+    display: flex;
+  }
+
+  li {
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+
+  a {
+    color: var(--black);
+    font-family: var(--primary-font-family);
+    transition: color .2s ease;
+    &:hover {
+      color: var(--plum);
+    }
+  }
+}

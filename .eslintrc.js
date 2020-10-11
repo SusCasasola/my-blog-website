@@ -32,11 +32,13 @@ module.exports = {
     "import/resolver": {
       alias: {
         map: [
-          ["pages", "./pages"],
-          ["utils", "./utils"],
-          ["styles", "./styles"],
-          ["languages", "./languages"],
           ["components", "./components"],
+          ["content", "./content"],
+          ["lang", "./lang"],
+          ["pages", "./pages"],
+          ["screens", "./screens"],
+          ["styles", "./styles"],
+          ["utils", "./utils"],
         ],
       },
     },

@@ -52,14 +52,14 @@ module.exports = withSass({
     const articlesSpanish = mapArticleRoutes(entriesSpanish.items, 'es');
 
     const homePage = {
-      '/': { page: '/home', query: { lang: 'en' } },
-      '/en': { page: '/home', query: { lang: 'en' } },
+      '/': { page: '/home', query: { lang: 'es' } },
       '/es': { page: '/home', query: { lang: 'es' } },
+      '/en': { page: '/home', query: { lang: 'en' } },
     };
     const blogPage = {
-      '/blog': { page: '/blog', query: { lang: 'en' } },
-      '/en/blog': { page: '/blog', query: { lang: 'en' } },
+      '/blog': { page: '/blog', query: { lang: 'es' } },
       '/es/blog': { page: '/blog', query: { lang: 'es' } },
+      '/en/blog': { page: '/blog', query: { lang: 'en' } },
     };
 
     return { ...articlesEnglish, ...articlesSpanish, ...homePage, ...blogPage };
@@ -68,11 +68,13 @@ module.exports = withSass({
   webpack(config) {
     const modifiedConfig = config;
     modifiedConfig.plugins.push(new webpack.EnvironmentPlugin(localEnv));
-    modifiedConfig.resolve.alias.pages = path.join(__dirname, './pages');
-    modifiedConfig.resolve.alias.utils = path.join(__dirname, './utils');
-    modifiedConfig.resolve.alias.styles = path.join(__dirname, './styles');
-    modifiedConfig.resolve.alias.languages = path.join(__dirname, './languages');
     modifiedConfig.resolve.alias.components = path.join(__dirname, './components');
+    modifiedConfig.resolve.alias.content = path.join(__dirname, './content');
+    modifiedConfig.resolve.alias.lang = path.join(__dirname, './lang');
+    modifiedConfig.resolve.alias.pages = path.join(__dirname, './pages');
+    modifiedConfig.resolve.alias.screens = path.join(__dirname, './screens');
+    modifiedConfig.resolve.alias.styles = path.join(__dirname, './styles');
+    modifiedConfig.resolve.alias.utils = path.join(__dirname, './utils');
     return modifiedConfig;
   },
 });

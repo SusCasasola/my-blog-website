@@ -1,36 +1,50 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import translate from 'utils/translate';
 
-const Footer = ({ currentUrl, currentLang, showLangSwitch }) => {
+import { useTranslate } from 'components/I18nContext';
+import { footerStyles } from './Footer.scss';
+
+const Footer = () => {
+  const { t } = useTranslate();
+
   const currentYear = new Date().getFullYear();
 
-  const renderLangPicker = () => {
-    const newLang = currentLang === 'es' ? 'en' : 'es';
-    let newUrl = currentUrl.replace(`/${currentLang}`, `/${newLang}`);
-    if (newUrl === currentUrl) {
-      newUrl = `/${newLang}${newUrl}`;
-    }
-    return <a href={newUrl}>{translate(currentLang, 'footer_switch_lang')}</a>;
-  };
-
   return (
-    <footer>
-      {showLangSwitch && renderLangPicker()}
-      <span>{translate(currentLang, 'footer_built_with')}</span>
-      <span>{`© Sussie Casasola - ${currentYear}`}</span>
+    <footer className={footerStyles}>
+      <p>
+        {`${t('footer_find_me')} `}
+        <a href="https://twitter.com/SusCasasola" target="_blank" rel="noopener noreferrer">
+          Twitter
+        </a>
+        {`, `}
+        <a href="https://github.com/SusCasasola" target="_blank" rel="noopener noreferrer">
+          Github
+        </a>
+        {`, `}
+        <a href="https://codepen.io/SusCasasola" target="_blank" rel="noopener noreferrer">
+          CodePen
+        </a>
+        {` & `}
+        <a href="https://codesandbox.io/u/SusCasasola" target="_blank" rel="noopener noreferrer">
+          CodeSandbox
+        </a>
+      </p>
+      <p>
+        {`${t('footer_built_with')} `}
+        <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">
+          Next
+        </a>
+        {`, `}
+        <a href="https://www.contentful.com/" target="_blank" rel="noopener noreferrer">
+          Contentful
+        </a>
+        {' & '}
+        <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">
+          Netlify
+        </a>
+      </p>
+      <p>{`© Sussie Casasola ${currentYear}`}</p>
     </footer>
   );
-};
-
-Footer.propTypes = {
-  showLangSwitch: PropTypes.bool,
-  currentUrl: PropTypes.string.isRequired,
-  currentLang: PropTypes.string.isRequired,
-};
-
-Footer.defaultProps = {
-  showLangSwitch: true,
 };
 
 export default Footer;

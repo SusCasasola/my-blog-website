@@ -1,60 +1,62 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import getConfig from 'next/config';
-import { withRouter } from 'next/router';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
-import Layout from 'components/Layout';
-import translate from 'utils/translate';
-import homeRenderingOptions from 'utils/homeRenderingOptions';
-import { homeBody } from 'styles/components/home.scss';
-
-const contentful = require('contentful');
-
-const { publicRuntimeConfig } = getConfig();
+import WebsitePage from 'components/WebsitePage';
+import HomeScreen from 'screens/Home';
+import Head from 'components/Head';
+import getLastEntries from 'content/getLastEntries';
 
 class Home extends Component {
   static async getInitialProps({ query }) {
-    const client = contentful.createClient(publicRuntimeConfig.contentLoad);
-    const homeText = await client.getEntries({
-      content_type: 'simpleRichText',
-      'fields.language': query.lang,
-      'fields.name': translate(query.lang, 'home_content_field'),
-    });
+    const lastEntries = await getLastEntries(query.lang);
 
     return {
-      currentLang: query.lang,
-      homeText: homeText.items[0].fields.richText,
+      lang: query.lang,
+      lastEntries,
     };
   }
 
   render() {
-    const {
-      router: { asPath },
-      homeText,
-      currentLang,
-    } = this.props;
-    const homeInnerHTML = { __html: documentToHtmlString(homeText, homeRenderingOptions) };
+    const { lang, lastEntries } = this.props;
+
+    const descriptionByLang = {
+      en: 'Welcome to my blog!',
+      es: '¡Bienvenido(a) a mi blog!',
+    };
+
     const metaDataInfo = {
       title: 'Sussie Casasola | Frontend Engineer',
-      description: translate(currentLang, 'meta_description_home'),
-      url: `https://www.sussie.dev/${currentLang}`,
-      canonical: 'https://www.sussie.dev',
+      description: descriptionByLang[lang],
+      url: `https://www.sussie.dev/${lang}`,
+      canonical: 'https://www.sussie.dev/',
       image: 'https://www.sussie.dev/static/default-meta-image.png',
     };
 
     return (
-      <Layout currentUrl={asPath} currentLang={currentLang} metaDataInfo={metaDataInfo}>
-        <section className={homeBody} dangerouslySetInnerHTML={homeInnerHTML} />
-      </Layout>
+      <WebsitePage lang={lang}>
+        <Head {...metaDataInfo} />
+        <HomeScreen lastEntries={lastEntries} />
+      </WebsitePage>
     );
   }
 }
 
 Home.propTypes = {
-  router: PropTypes.shape({ asPath: PropTypes.string }).isRequired,
-  homeText: PropTypes.string.isRequired,
-  currentLang: PropTypes.string.isRequired,
+  lang: PropTypes.string.isRequired,
+  lastEntries: PropTypes.arrayOf(
+    PropTypes.shape({
+      fields: PropTypes.shape({
+        title: PropTypes.string,
+        description: PropTypes.string,
+        publishDate: PropTypes.string,
+        slug: PropTypes.string,
+        tags: PropTypes.arrayOf(PropTypes.string),
+      }),
+      sys: PropTypes.shape({
+        id: PropTypes.string,
+      }),
+    })
+  ).isRequired,
 };
 
-export default withRouter(Home);
+export default Home;

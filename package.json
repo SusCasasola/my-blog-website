@@ -1,9 +1,9 @@
 {
-  "name": "my-website-2019",
+  "name": "my-blog-website",
   "author": "@SusCasasola",
-  "title": "Sussie Casasola Website",
+  "title": "Sussie Casasola's Blog",
   "license": "MIT",
-  "version": "2.3.1",
+  "version": "3.0.0",
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -11,12 +11,13 @@
     "deploy": "yarn run build && yarn run export"
   },
   "dependencies": {
-    "@contentful/rich-text-html-renderer": "^13.1.0",
+    "@contentful/rich-text-html-renderer": "^14.1.1",
     "@zeit/next-sass": "^1.0.1",
-    "contentful": "^7.4.3",
+    "contentful": "^7.14.7",
+    "date-fns": "^2.16.1",
     "dotenv": "^8.1.0",
     "next": "^9.3.2",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
