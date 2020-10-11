@@ -1,0 +1,14 @@
+button {
+  border: none;
+  font-family: inherit;
+  border-radius: 50px;
+  padding: .5rem 2rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:active {
+    outline: none;
+  }
+}

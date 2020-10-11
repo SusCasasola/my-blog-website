@@ -43,7 +43,20 @@ class Home extends Component {
 
 Home.propTypes = {
   lang: PropTypes.string.isRequired,
-  lastEntries: PropTypes.array.isRequired, //eslint-disable-line
+  lastEntries: PropTypes.arrayOf(
+    PropTypes.shape({
+      fields: PropTypes.shape({
+        title: PropTypes.string,
+        description: PropTypes.string,
+        publishDate: PropTypes.string,
+        slug: PropTypes.string,
+        tags: PropTypes.arrayOf(PropTypes.string),
+      }),
+      sys: PropTypes.shape({
+        id: PropTypes.string,
+      }),
+    })
+  ).isRequired,
 };
 
 export default Home;

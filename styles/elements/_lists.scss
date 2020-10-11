@@ -9,13 +9,13 @@ ul,ol {
     }
   }
 
-  &:not([class="no-list-style"]) {
+  &:not([class*="no-list-style"]) {
     padding-left: 1.5rem;
   }
 }
 
 ul {
-  &:not([class="no-list-style"]) {
+  &:not([class*="no-list-style"]) {
     li::before {
       content: "\2022";
       position: absolute;
@@ -29,7 +29,7 @@ ul {
 
 ol {
   counter-reset: orderedCounter;
-  &:not([class="no-list-style"]) {
+  &:not([class*="no-list-style"]) {
     li::before {
       content: counter(orderedCounter) ".";
       counter-increment: orderedCounter;
