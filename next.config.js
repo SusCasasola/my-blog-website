@@ -69,7 +69,7 @@ module.exports = withSass({
     const modifiedConfig = config;
     modifiedConfig.plugins.push(new webpack.EnvironmentPlugin(localEnv));
     modifiedConfig.resolve.alias.components = path.join(__dirname, './components');
-    modifiedConfig.resolve.alias.contentful = path.join(__dirname, './contentful');
+    modifiedConfig.resolve.alias.content = path.join(__dirname, './content');
     modifiedConfig.resolve.alias.lang = path.join(__dirname, './lang');
     modifiedConfig.resolve.alias.pages = path.join(__dirname, './pages');
     modifiedConfig.resolve.alias.screens = path.join(__dirname, './screens');

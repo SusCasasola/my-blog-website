@@ -33,7 +33,7 @@ module.exports = {
       alias: {
         map: [
           ["components", "./components"],
-          ["contentful", "./contentful"],
+          ["content", "./content"],
           ["lang", "./lang"],
           ["pages", "./pages"],
           ["screens", "./screens"],
