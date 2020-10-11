@@ -17,7 +17,7 @@ const Header = () => {
       </Link>
 
       <nav>
-        <ul>
+        <ul className="no-list-style">
           <li>
             <Link as={`/${currentLang}`} href={`/${currentLang}/home`}>
               <a>{t('navigation_home')}</a>

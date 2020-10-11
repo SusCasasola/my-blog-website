@@ -1,5 +1,11 @@
 import React from 'react';
 
-const MainContent = ({ children }) => <main id="main-content">{children}</main>;
+import { mainStyles } from './MainContent.scss';
+
+const MainContent = ({ children }) => (
+  <main id="main-content" className={mainStyles}>
+    {children}
+  </main>
+);
 
 export default MainContent;

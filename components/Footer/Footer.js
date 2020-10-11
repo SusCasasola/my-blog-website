@@ -10,7 +10,25 @@ const Footer = () => {
 
   return (
     <footer className={footerStyles}>
-      <span>
+      <p>
+        {`${t('footer_find_me')} `}
+        <a href="https://twitter.com/SusCasasola" target="_blank" rel="noopener noreferrer">
+          Twitter
+        </a>
+        {`, `}
+        <a href="https://github.com/SusCasasola" target="_blank" rel="noopener noreferrer">
+          Github
+        </a>
+        {`, `}
+        <a href="https://codepen.io/SusCasasola" target="_blank" rel="noopener noreferrer">
+          CodePen
+        </a>
+        {` & `}
+        <a href="https://codesandbox.io/u/SusCasasola" target="_blank" rel="noopener noreferrer">
+          CodeSandbox
+        </a>
+      </p>
+      <p>
         {`${t('footer_built_with')} `}
         <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">
           Next
@@ -23,8 +41,8 @@ const Footer = () => {
         <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">
           Netlify
         </a>
-      </span>
-      <span>{`© Sussie Casasola - ${currentYear}`}</span>
+      </p>
+      <p>{`© Sussie Casasola ${currentYear}`}</p>
     </footer>
   );
 };

@@ -12,7 +12,7 @@ h5 {
 h1 {
   position: relative;
   margin-bottom: 3rem;
-  font-size: 2.5rem;
+  font-size: 2.3rem;
 
   &::after {
     content: "";
@@ -24,10 +24,6 @@ h1 {
     background-size: contain;
     background-repeat: no-repeat;
     vertical-align: bottom;
-  }
-
-  @media screen and (min-width: 500px) {
-    font-size: 2.3rem;
   }
 }
 

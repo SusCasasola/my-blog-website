@@ -10,6 +10,7 @@
   --plum: #{$plum};
   --plum-dark: #{darken($plum, 30%)};
   --gray: #{$gray};
+  --gray-light: #{lighten($gray, 15%)};
 
   --primary-font-family: #{$primary-font-family};
   --secondary-font-family: #{$secondary-font-family};
