@@ -4,7 +4,7 @@ const es = {
 
   home_page_title: '¡Hola! Soy Sussie',
   home_page_description:
-    'Escribo cositas sobre CSS y Frontend en general. Actualmente soy Frontend Engineer en Nubank y me encuentro en la Ciudad de México. Estos son los artículos que he escrito recientemente:',
+    'Escribo cositas sobre CSS y Frontend en general. Estos son los artículos que he escrito recientemente:',
 
   blog_page_title: 'Todos mis artículos',
 

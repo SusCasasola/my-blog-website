@@ -19,6 +19,7 @@ const Blog = ({ allEntries }) => {
         {filteredEntries.map(entry => (
           <li key={entry.sys.id}>
             <ArticlePreview
+              tags={entry.fields.tags}
               title={entry.fields.title}
               description={entry.fields.description}
               publishDate={entry.fields.publishDate}

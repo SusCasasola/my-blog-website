@@ -4,7 +4,7 @@ const en = {
 
   home_page_title: "Hi! I'm Sussie",
   home_page_description:
-    "I enjoy writing about CSS and Frontend topics in general. I'm actually working on Nubank as a Frontend Engineer. Here you can find a list of the last articles I have published.",
+    'I enjoy writing about CSS and Frontend topics in general. Here you can find a list of the last articles I have published.',
 
   blog_page_title: 'All my articles',
 

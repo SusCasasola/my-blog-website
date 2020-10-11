@@ -1,6 +1,7 @@
 .articlePreviewStyles {
   display: block;
   padding: 2rem;
+  margin-bottom: 1.3rem;
   box-shadow: 0 0 .2rem var(--black-20);
   border-radius: 0.333rem;
   transition: box-shadow .2s ease;
@@ -13,17 +14,8 @@
     }
   }
 
-  &:first-child {
-    h2 {
-      margin-top: 0;
-    }
-  }
-
-  &:not(:last-child) {
-    margin-bottom: 3rem;
-  }
-
   h2 {
+    margin-top: 0;
     transition: color .2s ease;
   }
 
@@ -42,5 +34,17 @@
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;  
+  }
+
+  ul {
+    display: flex;
+    li {
+      border-radius: 2px;
+      margin-right: 1rem;
+      font-size: .8rem;
+      background-color: var(--plum);
+      color: var(--white);
+      padding: 0 1rem;
+    }
   }
 }

@@ -9,7 +9,6 @@ import getEntry from 'content/getEntry';
 class Article extends Component {
   static async getInitialProps({ query }) {
     const entry = await getEntry(query.slug);
-
     return {
       lang: query.lang,
       entry,
@@ -29,9 +28,9 @@ class Article extends Component {
     };
 
     return (
-      <WebsitePage>
+      <WebsitePage lang={lang}>
         <Head {...metaDataInfo} />
-        <ArticleScreen entry={entry} />
+        <ArticleScreen entry={entry.fields} />
       </WebsitePage>
     );
   }
