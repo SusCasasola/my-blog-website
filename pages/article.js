@@ -21,7 +21,7 @@ class Article extends Component {
 
     const metaDataInfo = {
       title,
-      description: `${description.substring(0, 47)}...`,
+      description: `${description.substring(0, 297)}...`,
       url: `https://www.sussie.dev/${lang}/blog/${slug}`,
       canonical,
       image: `https:${image.fields.file.url}`,
