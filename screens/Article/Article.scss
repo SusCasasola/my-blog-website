@@ -1,5 +1,5 @@
 .articleHeader {
-  span {
+  time {
     text-transform: uppercase;
     font-size: .7rem;
     font-weight: 700;
@@ -47,4 +47,37 @@
     white-space: pre-wrap;
   }
   
+}
+
+.articleFooter {
+  height: 6.25rem;
+  padding-left: 7.25rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  address {
+    font-style: normal;
+  }
+
+  a {
+    display: block;
+    color: var(--black-70);
+    font-weight: 400;
+  }
+
+  img {
+    width: 6.25rem;
+    height: 6.25rem;
+    border-radius: 50%;
+    background-color: var(--plum);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  h3 {
+    margin-bottom: 0;
+  }
 }
