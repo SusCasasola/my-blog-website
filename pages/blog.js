@@ -20,8 +20,10 @@ class Blog extends Component {
     const { lang, allEntries } = this.props;
 
     const descriptionByLang = {
-      en: "This is the list of all articles I've published",
-      es: 'Esta es la lista de todos los artículos que he publicado.',
+      en:
+        "This is the list of all the articles I've published. You can use the filter tags to navigate through them.",
+      es:
+        'Esta es la lista de todos los artículos que he publicado. Usa el filtro de tags para navegar rápidamente.',
     };
 
     const metaDataInfo = {

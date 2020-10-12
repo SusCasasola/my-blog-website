@@ -42,7 +42,7 @@ const Footer = () => {
           Netlify
         </a>
       </p>
-      <p>{`© Sussie Casasola ${currentYear}`}</p>
+      <p>{`© SusCasasola ${currentYear}`}</p>
     </footer>
   );
 };

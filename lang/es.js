@@ -10,6 +10,10 @@ const es = {
 
   article_published_on: 'Publicado el:',
   article_read_more: 'Leer más...',
+  article_author_title: 'Por: Sussie Casasola',
+  article_author_handle: '@SusCasasola',
+
+  article_author_description: 'Frontend Engineer. Feminista. CSS Nerd.',
 
   footer_switch_lang: '💬 Cambiar a Inglés',
   footer_find_me: 'Me puedes encontrar también en:',

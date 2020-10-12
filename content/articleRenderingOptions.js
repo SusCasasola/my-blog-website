@@ -39,7 +39,7 @@ const articleRenderingOptions = {
       };
       return `
         <figure>
-          <img src="${figureImageUrl}"/>
+          <img src="${figureImageUrl}" alt="${node.data.target.fields.file.description}"/>
           ${renderFigureDescription()}
         </figure>
       `;
