@@ -2,28 +2,47 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { useTranslate } from 'components/I18nContext';
-import ArticlePreview from 'components/ArticlePreview';
+import { articleTitle } from './Home.scss';
 
 const Home = ({ lastEntries }) => {
-  const { t } = useTranslate();
+  const { t, currentLang } = useTranslate();
 
   return (
     <section>
       <h1>{t('home_page_title')}</h1>
       <p>{t('home_page_description')}</p>
 
-      <ul className="no-list-style">
+      <h2>{t('home_page_latest_articles')}</h2>
+      <ul>
         {lastEntries.map(entry => (
-          <li key={entry.sys.id}>
-            <ArticlePreview
-              tags={entry.fields.tags}
-              title={entry.fields.title}
-              description={entry.fields.description}
-              publishDate={entry.fields.publishDate}
-              slug={entry.fields.slug}
-            />
+          <li className={articleTitle} key={entry.sys.id}>
+            <a href={`/${currentLang}/blog/${entry.fields.slug}`} title={entry.fields.title}>
+              <h3>{entry.fields.title}</h3>
+            </a>
           </li>
         ))}
+      </ul>
+
+      <h2>{t('home_page_latest_talks')}</h2>
+      <ul>
+        <li className={articleTitle}>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.youtube.com/watch?v=bVfzmVi7c_Q"
+          >
+            <h3>¿Cómo una comunidad remota impulsa el desarrollo de mujeres?</h3>
+          </a>
+        </li>
+        <li className={articleTitle}>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.youtube.com/watch?v=6HcGFQKdbkI"
+          >
+            <h3>Presentando Café con Ingenieras</h3>
+          </a>
+        </li>
       </ul>
     </section>
   );

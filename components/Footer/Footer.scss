@@ -5,11 +5,15 @@
 
   p {
     text-align: center;
+    margin-bottom: .5rem;
   }
 
   a {
     color: var(--black-70);
-    text-decoration: underline;
-    font-weight: 400;
+    font-family: var(--primary-font-family);
+
+    &:hover {
+      color: var(--plum);
+    }
   }
 }
