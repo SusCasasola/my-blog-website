@@ -17,7 +17,7 @@ class Article extends Component {
 
   render() {
     const { lang, entry } = this.props;
-    const { title, description, canonical, slug, image } = entry.fields;
+    const { title, description, canonical, slug, image, heroImage } = entry.fields;
 
     const metaDataInfo = {
       title: `${title} by SusCasasola`,
@@ -28,7 +28,7 @@ class Article extends Component {
     };
 
     return (
-      <WebsitePage lang={lang}>
+      <WebsitePage lang={lang} heroImage={heroImage}>
         <Head {...metaDataInfo} />
         <ArticleScreen entry={entry.fields} />
       </WebsitePage>
