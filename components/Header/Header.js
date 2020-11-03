@@ -28,6 +28,13 @@ const Header = () => {
               <a>{t('navigation_blog')}</a>
             </Link>
           </li>
+          <li>
+            <Link href="https://newsletter.sussie.dev/">
+              <a target="_blank" rel="noopener noreferrer">
+                {t('navigation_newsletter')}
+              </a>
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>

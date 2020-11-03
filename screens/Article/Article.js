@@ -39,7 +39,7 @@ const Article = ({ entry }) => {
             src="/static/suscasasola.jpeg"
             alt="SusCasasola | Sussie Casasola | Susana Casasola"
           />
-          <a href="/" rel="author">
+          <a href="https://newsletter.sussie.dev" rel="author">
             <h3>{t('article_author_title')}</h3>
             <span>{t('article_author_handle')}</span>
             <p>{t('article_author_description')}</p>

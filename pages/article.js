@@ -20,7 +20,7 @@ class Article extends Component {
     const { title, description, canonical, slug, image } = entry.fields;
 
     const metaDataInfo = {
-      title,
+      title: `${title} by SusCasasola`,
       description: `${description.substring(0, 297)}...`,
       url: `https://www.sussie.dev/${lang}/blog/${slug}`,
       canonical,
