@@ -1,0 +1,9 @@
+.heroStyles {
+  height: 10rem;
+  width: 100%;
+  background-color: var(--plum);
+  background-size: cover;
+  @media screen and (min-width: 800px) {
+    height: 20rem;
+  }
+}
